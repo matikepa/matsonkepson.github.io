@@ -35,6 +35,10 @@ Feel free to download and use them to add some fun to your meetings!
 | ![Background The Office](images/background_theOffice.png)   |
 | ![Background Bluescreen](images/background_bluescreen.png)  |
 
+| Bonus - Gemini AI altered first background                   |
+| ------------------------------------------------------------ |
+| ![Background AI It's Okay](images/ai_background_itsokay.jpg) |
+
 P.S.
 Special thanks to [LazyAdmin](https://lazyadmin.nl/) for the inspiration.
 
