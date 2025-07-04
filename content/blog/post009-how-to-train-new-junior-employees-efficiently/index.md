@@ -50,8 +50,8 @@ constant context switching during the initial stages. Motivation can be fragile 
 Create an environment where trainees feel comfortable asking questions to clarify their understanding.
 Keep in mind that you may need to answer the same topics multiple times. Be patient, as this task can be
 challenging, and you are working with human beings. Always strive to be respectful and supportive, never
-let tem feel stupid. Consider how to guide trainees toward better answers or provide minimal hints that
-will help them memorize the information or discover it on their own.
+let them feel stupid. Think about ways to steer trainees towards improved answers or offer subtle hints
+that will assist them in memorizing the information or uncovering it on their own.
 
 ### Step 3
 
@@ -62,7 +62,7 @@ Consider providing additional resources, such as articles, books, tech meetups o
 their own pace. Utilize materials that you found helpful during your own learning journey, or take the
 initiative to discover new ones. There is a plenty of open-source resources available online, including
 excellent YouTube channels, publications from Packt Publishing, and insightful tech blogs from leading
-technology companies.
+technology companies. If feasible, encourage them to attend conferences to boost their confidence...
 
 ### Step 4
 
@@ -91,7 +91,7 @@ using real-world examples to boost confidence while avoiding overwhelming them o
 
 Creating a supportive environment for different kinds of questions, providing additional resources,
 promoting incremental learning are crucial steps. The feedback loop is also highlighted, encouraging
-constructive criticism that develops critical thinking, do not forget about lot of hands-on practice.
+constructive criticism that develops critical thinking. Remember to include plenty of hands-on practice.
 Overall, these strategies aim to ensure that new team members quickly become valuable contributors to
 any organization.
 
