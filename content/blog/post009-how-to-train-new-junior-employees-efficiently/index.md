@@ -12,9 +12,8 @@ authors:
 
 In this post, we will explore the best practices for training and mentoring junior/mid employees efficiently.
 We will cover the key steps and strategies that can help you achieve not only your but also your trainee's goals.
-Remember that proper training of new employees is a critical investment in the future success of any
-organization. I will summarize simple strategies to help you onboard and develop new team members effectively,
-ensuring they quickly become valuable contributors.
+Remember that proper training of new employees is a critical investment in the future success of any organization.
+I will summarize simple strategies to help you onboard and develop new team members effectively, ensuring they quickly become valuable contributors.
 
 Opinions are based on my own experiences in different jobs, industries, and countries, mostly in multicultural environments.
 
