@@ -11,11 +11,11 @@ authors:
 ---
 
 In this post, we will explore the best practices for training and mentoring junior/mid employees efficiently.
-We will cover the key steps and strategies that can help you achieve not only your but also your trainee's goals.
+We will cover the key steps and strategies that can help you achieve not only your goals but also your trainee's goals.
 Remember that proper training of new employees is a critical investment in the future success of any organization.
 I will summarize simple strategies to help you onboard and develop new team members effectively, ensuring they quickly become valuable contributors.
 
-Opinions are based on my own experiences in different jobs, industries, and countries, mostly in multicultural environments.
+Opinions are based on my own experiences in different jobs, industries, and countries, primarily in multicultural environments.
 
 ---
 
@@ -38,7 +38,8 @@ can discuss in more detail later.
 While we focus on the basics, it is important to keep in mind that the key to the fastest knowledge
 digestion is operating with examples that are most beneficial in your current position. Concentrate
 on tools and practices that provide the greatest efficiency in the shortest amount of time.
-However, be cautious not to overwhelm newcomers! Focus on one task at a time, avoid multitasking and
+Give them guidance and a positive attitude, but don't do their job for them completely.
+Be cautious not to overwhelm newcomers! Focus on one task at a time, avoid multitasking and
 constant context switching during the initial stages. Motivation can be fragile and easily disrupted.
 
 ### Step 2
