@@ -23,7 +23,7 @@ to the cloud. This approach enhances your development workflow by enabling rapid
 deployment to AWS. By combining CDK, TypeScript, and LocalStack, you can efficiently manage your infrastructure as code
 and ensure your serverless applications are robust and ready for production.
 
-The entire codebase is available [here](https://github.com/matsonkepson/cdk-stuff).
+The entire codebase is available [here](https://github.com/matikepa/cdk-stuff).
 
 ---
 
@@ -47,10 +47,10 @@ Below, I'll illustrate the steps through screenshots to guide you.
 
 ## Usage
 
-- Clone the [repository](https://github.com/matsonkepson/cdk-stuff)
+- Clone the [repository](https://github.com/matikepa/cdk-stuff)
 
 ```bash
-git clone https://github.com/matsonkepson/cdk-stuff
+git clone https://github.com/matikepa/cdk-stuff
 ```
 
 - Install the code dependencies
