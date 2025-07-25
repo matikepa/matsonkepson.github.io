@@ -256,7 +256,7 @@ details, [follow this link](https://docs.github.com/en/pages/configuring-a-custo
 
 [Original documentation link](https://gohugo.io/hosting-and-deployment/hosting-on-github/).
 
-Please find [here](https://github.com/matsonkepson/matsonkepson.github.io/blob/main/.github/workflows/hugo-deploy.yaml)
+Please find [here](https://github.com/matikepa/matsonkepson.github.io/blob/main/.github/workflows/hugo-deploy.yaml)
 an example file which I am using to provision my GitHub Action.
 Remember to place your yaml file inside following folder structure inside your repo **.github/workflows**
 
