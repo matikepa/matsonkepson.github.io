@@ -1,4 +1,4 @@
-module github.com/matsonkepson/matsonkepson.github.io
+module github.com/matikepa/matsonkepson.github.io
 
 go 1.22.2
 

@@ -47,7 +47,7 @@ pactl set-default-source ${DEFAULT_MIC}
 
 ### the preferred way
 
-I have created this [>Gist<](https://gist.github.com/matsonkepson/de6327b8aa7677c6048ff1d29c81be57) which you only need
+I have created this [>Gist<](https://gist.github.com/matikepa/de6327b8aa7677c6048ff1d29c81be57) which you only need
 to run once to resolve the issue.
 Below is a Gist script that you can use to set this up for autostart:
 
