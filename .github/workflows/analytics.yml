@@ -7,10 +7,20 @@ on:
 jobs:
   analytics:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v3
       - name: Fetch GitHub Pages Analytics
         run: |
+          echo "Fetching GitHub Pages analytics..."
           gh api \
             -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/pages/traffic
+            /repos/${{ github.repository }}/pages/traffic \
+            --jq '.' > analytics-$(date +%Y-%m-%d).json
+
+          echo "Analytics data saved to analytics-$(date +%Y-%m-%d).json"
+          cat analytics-$(date +%Y-%m-%d).json
