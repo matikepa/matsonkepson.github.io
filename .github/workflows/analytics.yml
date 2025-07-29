@@ -1,8 +1,8 @@
-# .github/workflows/analytics.yml
 name: Page Analytics
 on:
   schedule:
     - cron: '0 0 * * *' # Daily analytics update
+  workflow_dispatch:     # Manual trigger option
 
 jobs:
   analytics:
@@ -14,6 +14,10 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v3
+
+      - name: Setup GitHub CLI
+        uses: actions/setup-github-cli@v1
+
       - name: Fetch GitHub Pages Analytics
         run: |
           echo "Fetching GitHub Pages analytics..."
