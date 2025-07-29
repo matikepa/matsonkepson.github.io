@@ -1,8 +1,8 @@
-# .github/workflows/analytics.yml
 name: Page Analytics
 on:
   schedule:
     - cron: '0 0 * * *' # Daily analytics update
+  workflow_dispatch:     # Manual trigger option
 
 jobs:
   analytics:
@@ -11,8 +11,14 @@ jobs:
       contents: read
       pages: read
     env:
-      GH_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
+      - name: Install GitHub CLI
+        run: |
+          whoami; id
+          type -p curl >/dev/null || (sudo apt update && sudo apt install curl wget -y)
+          sudo apt update
+          sudo apt install gh -y
       - uses: actions/checkout@v3
       - name: Fetch GitHub Pages Analytics
         run: |
