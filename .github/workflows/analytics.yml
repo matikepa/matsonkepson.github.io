@@ -8,25 +8,80 @@ jobs:
   analytics:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pages: read
     env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Install GitHub CLI
         run: |
-          whoami; id
           type -p curl >/dev/null || (sudo apt update && sudo apt install curl wget -y)
           sudo apt update
           sudo apt install gh -y
-      - uses: actions/checkout@v3
-      - name: Fetch GitHub Pages Analytics
+      - uses: actions/checkout@v4
+      - name: Fetch Repository Analytics
         run: |
-          echo "Fetching GitHub Pages analytics..."
+          echo "Fetching repository analytics..."
+          DATE=$(date +%Y-%m-%d)
+          
+          # Create analytics directory
+          mkdir -p analytics
+          
+          # Fetch page views
+          echo "Fetching page views..."
           gh api \
             -H "Accept: application/vnd.github+json" \
-            /repos/${{ github.repository }}/pages/traffic \
-            --jq '.' > analytics-$(date +%Y-%m-%d).json
-
-          echo "Analytics data saved to analytics-$(date +%Y-%m-%d).json"
-          cat analytics-$(date +%Y-%m-%d).json
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/traffic/views \
+            --jq '.' > analytics/page-views-${DATE}.json || echo "Failed to fetch page views"
+          
+          # Fetch repository clones
+          echo "Fetching repository clones..."
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/traffic/clones \
+            --jq '.' > analytics/clones-${DATE}.json || echo "Failed to fetch clones"
+          
+          # Fetch top referral paths
+          echo "Fetching top referral paths..."
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/traffic/popular/paths \
+            --jq '.' > analytics/referral-paths-${DATE}.json || echo "Failed to fetch referral paths"
+          
+          # Fetch top referral sources
+          echo "Fetching top referral sources..."
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            /repos/${{ github.repository }}/traffic/popular/referrers \
+            --jq '.' > analytics/referral-sources-${DATE}.json || echo "Failed to fetch referral sources"
+          
+          echo "Analytics data saved for ${DATE}"
+          ls -la analytics/
+          
+          # Display summary
+          echo "=== Analytics Summary for ${DATE} ==="
+          if [ -f "analytics/page-views-${DATE}.json" ]; then
+            echo "Page Views:"
+            cat analytics/page-views-${DATE}.json | jq -r '"Total views: \(.count // "N/A"), Unique visitors: \(.uniques // "N/A")"'
+          fi
+          
+          if [ -f "analytics/clones-${DATE}.json" ]; then
+            echo "Repository Clones:"
+            cat analytics/clones-${DATE}.json | jq -r '"Total clones: \(.count // "N/A"), Unique cloners: \(.uniques // "N/A")"'
+          fi
+      
+      - name: Commit Analytics Data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add analytics/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add analytics data for $(date +%Y-%m-%d)"
+            git push
+          fi
