@@ -2,7 +2,7 @@ name: Page Analytics
 on:
   schedule:
     - cron: '0 0 * * *' # Daily analytics update
-  workflow_dispatch:    # Manual trigger option
+  workflow_dispatch: # Manual trigger option
 
 jobs:
   analytics:
@@ -32,12 +32,12 @@ jobs:
           fi
           # Create analytics directory
           mkdir -p analytics
+
           # Function to make API calls with better error handling
           fetch_analytics() {
             local endpoint="$1"
             local output_file="$2"
             local description="$3"
-            
             echo "Fetching $description..."
             if gh api \
               -H "Accept: application/vnd.github+json" \
@@ -50,6 +50,7 @@ jobs:
               echo '{"error": "No data available or insufficient permissions"}' > "$output_file"
             fi
           }
+
           # Fetch different types of analytics
           fetch_analytics "traffic/views" "analytics/page-views-${DATE}.json" "page views"
           fetch_analytics "traffic/clones" "analytics/clones-${DATE}.json" "repository clones"
@@ -72,6 +73,7 @@ jobs:
           else
             echo "Repository Clones: No data available"
           fi
+
       - name: Commit Analytics Data
         run: |
           git config --local user.email "action@github.com"

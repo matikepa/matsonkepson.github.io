@@ -12,4 +12,6 @@ Visit [https://kepa.eu.org](https://kepa.eu.org/)
 
 ![PR status](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/create-pr.yaml/badge.svg?branch=develop)
 
+[![Page Analytics](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/analytics.yml/badge.svg)](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/analytics.yml)
+
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
