@@ -13,15 +13,13 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
-      - uses: actions/checkout@v3
-
       - name: Install GitHub CLI
         run: |
           whoami; id
           type -p curl >/dev/null || (sudo apt update && sudo apt install curl wget -y)
           sudo apt update
           sudo apt install gh -y
-
+      - uses: actions/checkout@v3
       - name: Fetch GitHub Pages Analytics
         run: |
           echo "Fetching GitHub Pages analytics..."
