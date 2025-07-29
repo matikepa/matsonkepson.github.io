@@ -24,6 +24,7 @@ jobs:
           echo "Fetching repository analytics..."
           DATE=$(date +%Y-%m-%d)
           
+
           # Check if token is available
           if [ -z "$GH_TOKEN" ]; then
             echo "Error: ANALYTICS_TOKEN secret is not set."
@@ -58,7 +59,7 @@ jobs:
           fetch_analytics "traffic/clones" "analytics/clones-${DATE}.json" "repository clones"
           fetch_analytics "traffic/popular/paths" "analytics/referral-paths-${DATE}.json" "top referral paths"
           fetch_analytics "traffic/popular/referrers" "analytics/referral-sources-${DATE}.json" "top referral sources"
-          
+
           echo "Analytics data saved for ${DATE}"
           ls -la analytics/
           
