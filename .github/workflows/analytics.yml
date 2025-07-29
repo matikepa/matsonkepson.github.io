@@ -11,7 +11,7 @@ jobs:
       contents: write
       pages: read
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.ANALYTICS_TOKEN }}
     steps:
       - name: Install GitHub CLI
         run: |
@@ -24,54 +24,59 @@ jobs:
           echo "Fetching repository analytics..."
           DATE=$(date +%Y-%m-%d)
           
+
+          # Check if token is available
+          if [ -z "$GH_TOKEN" ]; then
+            echo "Error: ANALYTICS_TOKEN secret is not set."
+            echo "Please create a Personal Access Token with 'repo' scope and add it as ANALYTICS_TOKEN secret."
+            exit 1
+          fi
+          
           # Create analytics directory
           mkdir -p analytics
           
-          # Fetch page views
-          echo "Fetching page views..."
-          gh api \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/${{ github.repository }}/traffic/views \
-            --jq '.' > analytics/page-views-${DATE}.json || echo "Failed to fetch page views"
+          # Function to make API calls with better error handling
+          fetch_analytics() {
+            local endpoint="$1"
+            local output_file="$2"
+            local description="$3"
+            
+            echo "Fetching $description..."
+            if gh api \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "/repos/${{ github.repository }}/$endpoint" \
+              --jq '.' > "$output_file" 2>/dev/null; then
+              echo "✓ Successfully fetched $description"
+            else
+              echo "✗ Failed to fetch $description (this may be normal if no data is available)"
+              echo '{"error": "No data available or insufficient permissions"}' > "$output_file"
+            fi
+          }
           
-          # Fetch repository clones
-          echo "Fetching repository clones..."
-          gh api \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/${{ github.repository }}/traffic/clones \
-            --jq '.' > analytics/clones-${DATE}.json || echo "Failed to fetch clones"
-          
-          # Fetch top referral paths
-          echo "Fetching top referral paths..."
-          gh api \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/${{ github.repository }}/traffic/popular/paths \
-            --jq '.' > analytics/referral-paths-${DATE}.json || echo "Failed to fetch referral paths"
-          
-          # Fetch top referral sources
-          echo "Fetching top referral sources..."
-          gh api \
-            -H "Accept: application/vnd.github+json" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            /repos/${{ github.repository }}/traffic/popular/referrers \
-            --jq '.' > analytics/referral-sources-${DATE}.json || echo "Failed to fetch referral sources"
-          
+          # Fetch different types of analytics
+          fetch_analytics "traffic/views" "analytics/page-views-${DATE}.json" "page views"
+          fetch_analytics "traffic/clones" "analytics/clones-${DATE}.json" "repository clones"
+          fetch_analytics "traffic/popular/paths" "analytics/referral-paths-${DATE}.json" "top referral paths"
+          fetch_analytics "traffic/popular/referrers" "analytics/referral-sources-${DATE}.json" "top referral sources"
+
           echo "Analytics data saved for ${DATE}"
           ls -la analytics/
           
           # Display summary
           echo "=== Analytics Summary for ${DATE} ==="
-          if [ -f "analytics/page-views-${DATE}.json" ]; then
+          if [ -f "analytics/page-views-${DATE}.json" ] && ! grep -q "error" "analytics/page-views-${DATE}.json"; then
             echo "Page Views:"
             cat analytics/page-views-${DATE}.json | jq -r '"Total views: \(.count // "N/A"), Unique visitors: \(.uniques // "N/A")"'
+          else
+            echo "Page Views: No data available"
           fi
           
-          if [ -f "analytics/clones-${DATE}.json" ]; then
+          if [ -f "analytics/clones-${DATE}.json" ] && ! grep -q "error" "analytics/clones-${DATE}.json"; then
             echo "Repository Clones:"
             cat analytics/clones-${DATE}.json | jq -r '"Total clones: \(.count // "N/A"), Unique cloners: \(.uniques // "N/A")"'
+          else
+            echo "Repository Clones: No data available"
           fi
       
       - name: Commit Analytics Data
