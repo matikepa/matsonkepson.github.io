@@ -5,7 +5,7 @@ on:
       - develop
 jobs:
   createPullRequestforMain:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -26,6 +26,7 @@ jobs:
           branch: develop
           title: 'Update develop to main'
           labels: |
+            enhancement
             update
-          assignees: matsonkepson
+          assignees: matikepa
           draft: false
