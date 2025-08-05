@@ -8,14 +8,6 @@ updates:
     labels:
       - 'dependencies'
       - 'ci'
-
-  # Shell script dependencies
-  - package-ecosystem: 'github-actions'
-    directory: '/'
-    schedule:
-      interval: 'weekly'
-    labels:
-      - 'dependencies'
       - 'shell-scripts'
 
   # Hugo dependencies
