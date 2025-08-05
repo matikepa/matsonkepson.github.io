@@ -5,6 +5,9 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    commit-message:
+      prefix: 'dependabot github-actions'
+    target-branch: 'develop'
     labels:
       - 'dependencies'
       - 'ci'
@@ -15,6 +18,9 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    commit-message:
+      prefix: 'dependabot gomod'
+    target-branch: 'develop'
     labels:
       - 'dependencies'
       - 'hugo'
@@ -24,15 +30,9 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    commit-message:
+      prefix: 'dependabot pip'
+    target-branch: 'develop'
     labels:
       - 'dependencies'
       - 'python'
-
-  # Pre-commit hooks
-  - package-ecosystem: 'pip'
-    directory: '/.pre-commit-config.yaml'
-    schedule:
-      interval: 'weekly'
-    labels:
-      - 'dependencies'
-      - 'pre-commit'
