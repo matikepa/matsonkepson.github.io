@@ -6,11 +6,14 @@ Visit [https://kepa.eu.org](https://kepa.eu.org/)
 
 ---
 
-### GitHub Action Stats
+### GitHub Action Status Badges
 
 ![GitHub Pages](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/hugo-deploy.yaml/badge.svg?branch=main)
 
+
 ![PR status](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/create-pr.yaml/badge.svg?branch=develop)
+
+[![Dependabot Updates](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/dependabot/dependabot-updates)
 
 [![Page Analytics](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/analytics.yml/badge.svg)](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/analytics.yml)
 
