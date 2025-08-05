@@ -1,5 +1,6 @@
 version: 2
 updates:
+
   # GitHub Actions
   - package-ecosystem: 'github-actions'
     directory: '/'
@@ -8,10 +9,10 @@ updates:
     commit-message:
       prefix: 'dependabot github-actions'
     target-branch: 'develop'
+    assignees:
+      - matikepa
     labels:
       - 'dependencies'
-      - 'ci'
-      - 'shell-scripts'
 
   # Hugo dependencies
   - package-ecosystem: 'gomod'
@@ -21,9 +22,10 @@ updates:
     commit-message:
       prefix: 'dependabot gomod'
     target-branch: 'develop'
+    assignees:
+      - matikepa
     labels:
       - 'dependencies'
-      - 'hugo'
 
   # Python dependencies
   - package-ecosystem: 'pip'
@@ -33,6 +35,7 @@ updates:
     commit-message:
       prefix: 'dependabot pip'
     target-branch: 'develop'
+    assignees:
+      - matikepa
     labels:
       - 'dependencies'
-      - 'python'
