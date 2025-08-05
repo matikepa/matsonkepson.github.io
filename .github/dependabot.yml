@@ -1,46 +1,46 @@
 version: 2
 updates:
   # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     labels:
-      - "dependencies"
-      - "ci"
+      - 'dependencies'
+      - 'ci'
 
   # Shell script dependencies
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     labels:
-      - "dependencies"
-      - "shell-scripts"
+      - 'dependencies'
+      - 'shell-scripts'
 
   # Hugo dependencies
-  - package-ecosystem: "gomod"
-    directory: "/"
+  - package-ecosystem: 'gomod'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     labels:
-      - "dependencies"
-      - "hugo"
+      - 'dependencies'
+      - 'hugo'
 
   # Python dependencies
-  - package-ecosystem: "pip"
-    directory: "/"
+  - package-ecosystem: 'pip'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     labels:
-      - "dependencies"
-      - "python"
+      - 'dependencies'
+      - 'python'
 
   # Pre-commit hooks
-  - package-ecosystem: "pip"
-    directory: "/.pre-commit-config.yaml"
+  - package-ecosystem: 'pip'
+    directory: '/.pre-commit-config.yaml'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     labels:
-      - "dependencies"
-      - "pre-commit"
+      - 'dependencies'
+      - 'pre-commit'
