@@ -18,7 +18,7 @@ Welcome to my personal blog repository! This is the source code for my website w
 | **GitHub Pages**  | ![GitHub Pages](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/hugo-deploy.yaml/badge.svg?branch=main)                                                                                                              |
 | **Pull Requests** | ![PR status](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/create-pr.yaml/badge.svg?branch=develop)                                                                                                                |
 | **Dependencies**  | ![Dependabot Updates](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/dependabot/dependabot-updates) |
-| **Analytics**     | ![Page Analytics](https://github.com/matikepa/matsonkepson.github.io/actions/workflowmds/mdanalytics.yml/badge.svg)](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/analytics.yml)                                     |
+| **Analytics**     | ![Page Analytics](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/analytics.yml/badge.svg)](https://github.com/matikepa/matsonkepson.github.io/actions/workflows/analytics.yml)                                     |
 | **Code Style**    | ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)                                                                                            |
 
 ## Local Development
