@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e  # Exit on error
 
-echo 'cleanup ...'
-./clean.sh
+# echo 'cleanup ...'
+# ./clean.sh
 
 # Check if Python3 is installed
 if ! command -v python3 &> /dev/null; then
@@ -20,9 +20,7 @@ echo "Installing dependencies..."
 python3 -m pip install --upgrade pip || { echo "Failed to upgrade pip"; exit 1; }
 python3 -m pip install -r requirements.txt || { echo "Failed to install requirements"; exit 1; }
 
-# Fresh run of pre-commit hooks
-pre-commit gc
-pre-commit clean
+# Run pre-commit hooks
 pre-commit run --all-files --verbose
 
 #build with proper symlinks
