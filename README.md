@@ -28,7 +28,7 @@ To run this blog locally:
 1. Install Hugo (extended version)
 2. Clone this repository
 3. Run `./build-local.sh` to start the development server
-4. Visit `http://localhost:1313`
+4. Visit [http://localhost:1313](http://localhost:1313)
 
 ## Content Management
 
