@@ -12,8 +12,8 @@ fi
 
 # Add venv with error handling
 echo "Creating Python virtual environment..."
-python3 -m venv venv || { echo "Failed to create virtual environment"; exit 1; }
-source venv/bin/activate || { echo "Failed to activate virtual environment"; exit 1; }
+python3 -m venv .venv || { echo "Failed to create virtual environment"; exit 1; }
+source .venv/bin/activate || { echo "Failed to activate virtual environment"; exit 1; }
 
 # Install dependencies
 echo "Installing dependencies..."

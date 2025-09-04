@@ -3,7 +3,7 @@
 **/resources/_gen/
 resources/
 public/
-venv/
+.venv/
 node_modules/
 
 # Apple stuff
