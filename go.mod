@@ -1,5 +1,5 @@
 module github.com/matikepa/matsonkepson.github.io
 
-go 1.22.2
+go 1.24.3
 
-require github.com/chrede88/qubt v1.5.0 // indirect
+require github.com/chrede88/qubt/v2 v2.1.0 // indirect
