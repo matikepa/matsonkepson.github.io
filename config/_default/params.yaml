@@ -13,13 +13,12 @@ author:
 ############################
 
 links:
-  - email: mailto:devnull@kepa.eu.org?subject=Contact%20from%20website%20link%20kepa.eu.org&body=Your%20message%20goes%20here...
   - github: https://github.com/matikepa/matsonkepson.github.io
-  - stack-overflow: https://stackoverflow.com/users/7786358/
-  - linkedin: https://linkedin.com/in/matikepa/
+  # - gitlab:
   # - facebook:
   # - x-twitter:
   # - mastodon:
+  - linkedin: https://linkedin.com/in/matikepa/
   # - instagram:
   # - reddit:
   # - telegram:
@@ -27,11 +26,13 @@ links:
   # - signal:
   # - codepen:
   # - dev:
-  # - website:
+  - email: mailto:devnull@kepa.eu.org?subject=Contact%20from%20website%20link%20kepa.eu.org&body=Your%20message%20goes%20here...
+  # - website: https://kepa.eu.org/blog/
   # - link:
   # - discord:
   # - orcid:
   # - slack:
+  - stack-overflow: https://stackoverflow.com/users/7786358/
   # - twitch:
   # - patreon:
   # - soundcloud:
@@ -59,7 +60,12 @@ links:
   # - amazon:
   # - google:
   # - paypal:
+  # - pgp-key:
   # - windows:
+  # - codeberg:
+  # - pixelfed:
+  # - substack:
+  - newsletter: https://kepa.eu.org/blog/
 
 ###############################
 ## OpenGraph & Twitter Cards
@@ -69,3 +75,17 @@ title: 'Mati Kepa'
 description: 'Build with Qubt & Hugo & GitHub Pages'
 images:
   - author.jpeg
+
+###############################
+## Latex math
+###############################
+
+# To configure Latex rendering on all pages, change to: true
+#
+# To only add Latex rendering on pages that need it, set in the frontmatter
+# of each page that needs it:
+#   params:
+#     math: true
+# This option will allow better performance, as it'll only load
+# the extra JS when needed.
+math: false

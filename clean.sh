@@ -10,3 +10,12 @@ echo '>> hugo cleanup done.'
 pre-commit gc
 pre-commit clean
 echo '>> pre-commit cleanup done.'
+
+# Deactivate and remove virtual environment if it exists
+if [ -d ".venv" ]; then
+    deactivate 2>/dev/null || true
+    rm -rf .venv
+    echo '>> Virtual environment removed.'
+fi
+
+echo '>> Full cleanup complete.'

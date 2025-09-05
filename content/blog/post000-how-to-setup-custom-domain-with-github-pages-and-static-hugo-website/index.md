@@ -366,7 +366,7 @@ After this is done, each commit you push to master or main branch will result an
 
 ### That's it!
 
-Have fun with troubleshooting :smile:
+Happy hacking :smile:
 
 ---
 
