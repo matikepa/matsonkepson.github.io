@@ -1,7 +1,7 @@
 name: Page Analytics
 on:
   schedule:
-    - cron: '0 0 * * *' # Daily analytics update
+    - cron: '0 0 1,15 * *' # Bi-monthly analytics update
   workflow_dispatch: # Manual trigger option
 
 jobs:
