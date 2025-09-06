@@ -23,18 +23,21 @@ Welcome to my personal blog repository! This is the source code for my website w
 
 ## Local Development
 
+[Installing Hugo](https://gohugo.io/installation/) is optional since we use python3 virtual env...
+
 To run this blog locally:
 
-1. Install Hugo (extended version)
+1. Make sure you have installed python3 locally
 2. Clone this repository
-3. Run `./build-local.sh` to start the development server
+3. Run `make all` to fresh start the development server
 4. Visit [http://localhost:1313](http://localhost:1313)
 
 ## Content Management
 
-- New posts can be created using `./new-post.sh`
-- Clean build artifacts with `./clean.sh`
+- Run build with `make run` or `make` for possible options
+- New posts can be created using `make new-post`
 - All content is written in Markdown and stored in the `content/` directory
+- Run `make format` to validate your new MD file
 
 ## License
 
