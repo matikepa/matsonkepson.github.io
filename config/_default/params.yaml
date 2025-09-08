@@ -5,7 +5,7 @@
 author:
   name: 'Mateusz (Mati) Kępa'
   image: author.jpeg
-  greeting: 'Hello there and welcome to my page! :hugs:'
+  greeting: 'Hello there and welcome to my personal blog page! :hugs:'
   icon: ':wave:'
 
 ############################
@@ -27,7 +27,7 @@ links:
   # - codepen:
   # - dev:
   - email: mailto:devnull@kepa.eu.org?subject=Contact%20from%20website%20link%20kepa.eu.org&body=Your%20message%20goes%20here...
-  # - website: https://kepa.eu.org/blog/
+  # - website:
   # - link:
   # - discord:
   # - orcid:
@@ -65,7 +65,8 @@ links:
   # - codeberg:
   # - pixelfed:
   # - substack:
-  - newsletter: https://kepa.eu.org/blog/
+  # - newsletter: https://kepa.eu.org/blog/
+  - newsletter: /index.xml
 
 ###############################
 ## OpenGraph & Twitter Cards
