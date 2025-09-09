@@ -60,13 +60,21 @@ class CookieConsent {
         bottom: -100%;
         left: 0;
         right: 0;
-        background: linear-gradient(135deg, #2f3640 0%, #40495a 100%);
-        color: #f5f6fa;
+        background: #262626;
+        color: #e2e8f0;
         padding: 0.5rem 1rem;
-        box-shadow: 0 -4px 20px rgba(47, 54, 64, 0.3);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 10000;
         backdrop-filter: blur(10px);
+        border-top: 1px solid #475569;
+      }
+
+      .dark .cookie-container {
+        background: #f5f5f5;
+        color: #334155;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid #e2e8f0;
       }
 
       .cookie-container.active {
@@ -93,13 +101,21 @@ class CookieConsent {
       }
 
       .cookie-message a {
-        color: #74b9ff;
+        color: #6366f1;
         text-decoration: underline;
         transition: color 0.2s ease;
       }
 
       .cookie-message a:hover {
-        color: #0984e3;
+        color: #4f46e5;
+      }
+
+      .dark .cookie-message a {
+        color: #6366f1;
+      }
+
+      .dark .cookie-message a:hover {
+        color: #818cf8;
       }
 
       .cookie-buttons {
@@ -120,24 +136,47 @@ class CookieConsent {
       }
 
       .cookie-btn {
-        background: linear-gradient(135deg, #e84118 0%, #c23616 100%);
+        background: #6366f1;
         color: #ffffff;
       }
 
       .cookie-btn:hover {
+        background: #4f46e5;
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(232, 65, 24, 0.4);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+      }
+
+      .dark .cookie-btn {
+        background: #6366f1;
+        color: #ffffff;
+      }
+
+      .dark .cookie-btn:hover {
+        background: #4f46e5;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
       }
 
       .nope-cookie-btn {
         background: transparent;
-        color: #ddd;
-        border: 1px solid #57606f;
+        color: #94a3b8;
+        border: 1px solid #475569;
       }
 
       .nope-cookie-btn:hover {
-        background: #57606f;
-        color: #ffffff;
+        background: #475569;
+        color: #e2e8f0;
+        border-color: #64748b;
+      }
+
+      .dark .nope-cookie-btn {
+        color: #475569;
+        border: 1px solid #cbd5e1;
+      }
+
+      .dark .nope-cookie-btn:hover {
+        background: #f1f5f9;
+        color: #334155;
+        border-color: #94a3b8;
       }
 
       /* Mobile responsive */
@@ -159,7 +198,12 @@ class CookieConsent {
 
       /* Accessibility improvements */
       .cookie-btn:focus, .nope-cookie-btn:focus {
-        outline: 2px solid #74b9ff;
+        outline: 2px solid #6366f1;
+        outline-offset: 2px;
+      }
+
+      .dark .cookie-btn:focus, .dark .nope-cookie-btn:focus {
+        outline: 2px solid #6366f1;
         outline-offset: 2px;
       }
 
