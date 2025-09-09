@@ -2,10 +2,10 @@ cfgv==3.4.0
 distlib==0.4.0
 filelock==3.19.1
 hugo==0.149.1
-identify==2.6.13
+identify==2.6.14
 libsass==0.23.0
 nodeenv==1.9.1
-platformdirs==4.3.8
+platformdirs==4.4.0
 pre_commit==4.3.0
 PyYAML==6.0.2
-virtualenv==20.33.1
+virtualenv==20.34.0
