@@ -31,14 +31,14 @@ class CookieConsent {
       bannerDelay: 1000,
       fadeOutDuration: 300,
       privacyPolicyUrl: '/cookies/',
-      ...options
+      ...options,
     };
 
     // Storage keys
     this.storageKeys = {
       bannerDisplayed: 'cookieBannerDisplayed',
       analyticsAllowed: 'analyticsIsAllowed',
-      consentTimestamp: 'consentTimestamp'
+      consentTimestamp: 'consentTimestamp',
     };
 
     this.cookieContainer = null;
@@ -146,11 +146,11 @@ class CookieConsent {
           flex-direction: column;
           text-align: center;
         }
-        
+
         .cookie-message {
           min-width: auto;
         }
-        
+
         .cookie-buttons {
           justify-content: center;
           width: 100%;
@@ -194,24 +194,24 @@ class CookieConsent {
 
     const message = document.createElement('p');
     message.className = 'cookie-message';
-    message.innerHTML = 'Can you be so kind and share some 🍪 with me 😊 ?';
+    message.innerHTML = 'Hello there cookie wizard 🧙‍♂️✨! Can you be so kind and share some 🍪 ?';
 
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'cookie-buttons';
 
     const acceptButton = document.createElement('button');
     acceptButton.className = 'cookie-btn';
-    acceptButton.textContent = 'Sure bud, I’ll help you out!';
+    acceptButton.textContent = "Sure bud, I'll help you out!";
     acceptButton.setAttribute('aria-label', 'Accept cookies');
 
     const rejectButton = document.createElement('button');
     rejectButton.className = 'nope-cookie-btn';
-    rejectButton.textContent = 'Nah, I\'m good';
+    rejectButton.textContent = "Nah, I'm good";
     rejectButton.setAttribute('aria-label', 'Decline cookies');
 
     buttonContainer.appendChild(acceptButton);
     buttonContainer.appendChild(rejectButton);
-    
+
     content.appendChild(message);
     content.appendChild(buttonContainer);
     cookieContainer.appendChild(content);
@@ -235,7 +235,7 @@ class CookieConsent {
 
     // Initialize dataLayer and gtag function
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function() {
+    window.gtag = function () {
       dataLayer.push(arguments);
     };
 
@@ -244,7 +244,7 @@ class CookieConsent {
     gtag('config', this.config.trackingId, {
       anonymize_ip: true,
       allow_google_signals: false,
-      allow_ad_personalization_signals: false
+      allow_ad_personalization_signals: false,
     });
 
     // Track consent acceptance
@@ -259,7 +259,7 @@ class CookieConsent {
       gtag('event', 'cookie_consent', {
         event_category: 'engagement',
         event_label: action,
-        value: 1
+        value: 1,
       });
     }
   }
@@ -269,7 +269,7 @@ class CookieConsent {
    */
   handleAccept() {
     const timestamp = new Date().toISOString();
-    
+
     localStorage.setItem(this.storageKeys.bannerDisplayed, 'true');
     localStorage.setItem(this.storageKeys.analyticsAllowed, 'true');
     localStorage.setItem(this.storageKeys.consentTimestamp, timestamp);
@@ -283,7 +283,7 @@ class CookieConsent {
    */
   handleReject() {
     const timestamp = new Date().toISOString();
-    
+
     localStorage.setItem(this.storageKeys.bannerDisplayed, 'true');
     localStorage.setItem(this.storageKeys.analyticsAllowed, 'false');
     localStorage.setItem(this.storageKeys.consentTimestamp, timestamp);
@@ -299,7 +299,7 @@ class CookieConsent {
     if (!this.cookieContainer) return;
 
     this.cookieContainer.classList.remove('active');
-    
+
     // Remove from DOM after animation completes
     setTimeout(() => {
       if (this.cookieContainer && this.cookieContainer.parentNode) {
@@ -331,7 +331,7 @@ class CookieConsent {
     const now = new Date();
     const oneYear = 365 * 24 * 60 * 60 * 1000; // 1 year in milliseconds
 
-    return (now - consentDate) < oneYear;
+    return now - consentDate < oneYear;
   }
 
   /**
@@ -389,11 +389,11 @@ class CookieConsent {
   function createCookieConsent() {
     // Only create one instance
     if (window.cookieConsentInstance) return;
-    
+
     window.cookieConsentInstance = new CookieConsent({
       trackingId: 'G-81E77KGMGF',
       bannerDelay: 800,
-      privacyPolicyUrl: '/cookies/'
+      privacyPolicyUrl: '/cookies/',
     });
   }
 
@@ -407,7 +407,7 @@ class CookieConsent {
 
   // Expose reset function for development/testing
   if (typeof window !== 'undefined') {
-    window.resetCookieConsent = function() {
+    window.resetCookieConsent = function () {
       if (window.cookieConsentInstance) {
         window.cookieConsentInstance.resetConsent();
       }
