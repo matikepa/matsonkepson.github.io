@@ -25,9 +25,9 @@ repos:
 
       - id: prettier
         name: Format Other Files
-        types_or: [javascript, ts, markdown, mdx, makefile, css, scss, shell, sh]
+        types_or: [javascript, ts, markdown, mdx, makefile, css, scss, shell, sh, python3]
         args: ['--write']
         additional_dependencies:
           - 'prettier@3.6.2'
           - 'prettier-plugin-sh@0.18.0'
-        exclude: ^vendor/
+        exclude: ^vendor/, assets/js/custom.js$

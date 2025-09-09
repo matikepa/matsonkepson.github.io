@@ -41,10 +41,6 @@ clean: ## Clean all Hugo artifacts, cache, and virtual environment
 	rm -rf $(RESOURCES_DIR)
 	rm -rf $(HUGO_LOCK)
 	@echo "✅ Hugo cleanup done."
-	@echo "🧹 Cleaning pre-commit..."
-	pre-commit gc 2>/dev/null || true
-	pre-commit clean 2>/dev/null || true
-	@echo "✅ Pre-commit cleanup done."
 	@echo "🧹 Cleaning virtual environment..."
 	@if [ -d "$(VENV_DIR)" ]; then \
 		rm -rf $(VENV_DIR); \
@@ -71,7 +67,9 @@ build: ## Setup virtual environment and install dependencies
 		pip install -r $(REQUIREMENTS) && \
 		echo "✅ Build complete. Environment is ready." || \
 		{ echo "❌ Failed to install dependencies"; exit 1; }
-
+	@echo "🔍 JavaScript minification..."
+	@. $(VENV_ACTIVATE) && python ./scripts/minifier.py || { echo "❌ JavaScript minification failed"; exit 1; }
+	@echo "✅ JavaScript minification complete."
 
 # Run: pre-check environment and start Hugo server
 .PHONY: run
