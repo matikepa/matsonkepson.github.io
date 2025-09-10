@@ -30,4 +30,4 @@ repos:
         additional_dependencies:
           - 'prettier@3.6.2'
           - 'prettier-plugin-sh@0.18.0'
-        exclude: ^vendor/, assets/js/custom.js$
+        exclude: '^vendor/|^assets/js/custom.js$'
