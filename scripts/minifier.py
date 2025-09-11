@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to minify JavaScript files using jsmin and CSS using rcssmin.
-Minifies assets/js/gtag.js (including embedded CSS) and writes the output to assets/js/custom.js.
+Minifies scripts/gtag.js (including embedded CSS) and writes the output to assets/js/custom.js.
 """
 
 from jsmin import jsmin
@@ -138,7 +138,7 @@ def obfuscate_js(js_code):
 
 
 try:
-    with open("assets/js/gtag.js", "r") as js_file:
+    with open("scripts/gtag.js", "r") as js_file:
         content = js_file.read()
 
     # Find and minify the embedded CSS
