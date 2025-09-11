@@ -57,164 +57,122 @@ class CookieConsent {
     const styles = `
       .cookie-container {
         position: fixed;
-        bottom: -100%;
-        left: 0;
-        right: 0;
-        background: #262626;
-        color: #e2e8f0;
-        padding: 0.5rem 1rem;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 10000;
-        backdrop-filter: blur(10px);
-        border-top: 1px solid #475569;
+        z-index: 10010;
+        background: var(--cookie-bg, #262626);
+        color: var(--cookie-fg, #e2e8f0);
+        border-radius: 0.375rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10), 0 1.5px 4px rgba(0,0,0,0.08);
+        padding: 1rem 2rem 1rem 1rem;
+        bottom: 1rem;
+        right: 1rem;
+        max-width: 28rem;
+        transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        opacity: 0;
+        pointer-events: none;
       }
-
-      .dark .cookie-container {
-        background: #f5f5f5;
-        color: #334155;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-        border-top: 1px solid #e2e8f0;
-      }
-
       .cookie-container.active {
-        transform: translateY(0);
-        bottom: 0;
+        opacity: 1;
+        pointer-events: auto;
       }
-
+      @media (max-width: 640px) {
+        .cookie-container {
+          left: 0.5rem;
+          right: 0.5rem;
+          max-width: 98vw;
+        }
+      }
       .cookie-content {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        max-width: 1200px;
-        margin: 0 auto;
+        flex-direction: column;
+        gap: 1rem;
       }
-
       .cookie-message {
-        flex: 1;
-        min-width: 250px;
+        font-size: 0.95rem;
+        line-height: 1.5;
         margin: 0;
-        font-size: 0.85rem;
-        line-height: 1.3;
+        word-break: break-word;
       }
-
       .cookie-message a {
         color: #6366f1;
         text-decoration: underline;
-        transition: color 0.2s ease;
+        transition: color 0.2s;
       }
-
       .cookie-message a:hover {
         color: #4f46e5;
       }
-
-      .dark .cookie-message a {
-        color: #6366f1;
-      }
-
-      .dark .cookie-message a:hover {
-        color: #818cf8;
-      }
-
       .cookie-buttons {
         display: flex;
-        gap: 0.25rem;
-        flex-shrink: 0;
+        gap: 0.5rem;
+        justify-content: flex-end;
       }
-
       .cookie-btn, .nope-cookie-btn {
-        padding: 0.25rem 0.5rem;
-        border: none;
-        border-radius: 0.4rem;
-        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.9rem;
         font-weight: 500;
+        border: none;
         cursor: pointer;
-        transition: all 0.2s ease;
-        white-space: nowrap;
+        transition: background 0.2s, color 0.2s;
       }
-
       .cookie-btn {
         background: #6366f1;
-        color: #ffffff;
+        color: #fff;
       }
-
       .cookie-btn:hover {
         background: #4f46e5;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
       }
-
-      .dark .cookie-btn {
-        background: #6366f1;
-        color: #ffffff;
-      }
-
-      .dark .cookie-btn:hover {
-        background: #4f46e5;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-      }
-
       .nope-cookie-btn {
         background: transparent;
-        color: #94a3b8;
-        border: 1px solid #475569;
+        color: #64748b;
+        border: 1px solid #64748b;
       }
-
       .nope-cookie-btn:hover {
-        background: #475569;
-        color: #e2e8f0;
-        border-color: #64748b;
-      }
-
-      .dark .nope-cookie-btn {
-        color: #475569;
-        border: 1px solid #cbd5e1;
-      }
-
-      .dark .nope-cookie-btn:hover {
-        background: #f1f5f9;
+        background: #e2e8f0;
         color: #334155;
-        border-color: #94a3b8;
       }
-
-      /* Mobile responsive */
-      @media (max-width: 768px) {
-        .cookie-content {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        .cookie-message {
-          min-width: auto;
-        }
-
-        .cookie-buttons {
-          justify-content: center;
-          width: 100%;
-        }
-      }
-
-      /* Accessibility improvements */
       .cookie-btn:focus, .nope-cookie-btn:focus {
         outline: 2px solid #6366f1;
         outline-offset: 2px;
       }
-
-      .dark .cookie-btn:focus, .dark .nope-cookie-btn:focus {
-        outline: 2px solid #6366f1;
-        outline-offset: 2px;
-      }
-
-      /* Reduced motion preference */
-      @media (prefers-reduced-motion: reduce) {
+      @media (prefers-color-scheme: dark) {
         .cookie-container {
-          transition: none;
+          --cookie-bg: #f5f5f5;
+          --cookie-fg: #334155;
         }
-        .cookie-btn, .nope-cookie-btn {
-          transition: none;
+        .cookie-btn {
+          background: #6366f1;
+          color: #fff;
         }
+        .cookie-btn:hover {
+          background: #4f46e5;
+        }
+        .nope-cookie-btn {
+          color: #475569;
+          border-color: #cbd5e1;
+        }
+        .nope-cookie-btn:hover {
+          background: #f1f5f9;
+          color: #334155;
+        }
+      }
+      .dark .cookie-container {
+        --cookie-bg: #f5f5f5;
+        --cookie-fg: #334155;
+      }
+      .dark .cookie-btn {
+        background: #6366f1;
+        color: #fff;
+      }
+      .dark .cookie-btn:hover {
+        background: #4f46e5;
+      }
+      .dark .nope-cookie-btn {
+        color: #475569;
+        border-color: #cbd5e1;
+      }
+      .dark .nope-cookie-btn:hover {
+        background: #f1f5f9;
+        color: #334155;
       }
     `;
 
@@ -238,7 +196,7 @@ class CookieConsent {
 
     const message = document.createElement('p');
     message.className = 'cookie-message';
-    message.innerHTML = 'Hello there cookie wizard 🧙‍♂️✨! Can you be so kind and share some 🍪 ?';
+    message.innerHTML = 'Hello there cookie wizard 🧙‍♂️✨!<br>Can you be so kind and share some 🍪 ?';
 
     const buttonContainer = document.createElement('div');
     buttonContainer.className = 'cookie-buttons';
