@@ -156,7 +156,7 @@ try:
     minified = jsmin(content, quote_chars="'\"`")
 
     with open("assets/js/custom.js", "w") as out_file:
-        out_file.write(minified)
+        out_file.write(minified + "\n")
 
     print("Minified and obfuscated gtag.js (with embedded CSS) to custom.js")
 
