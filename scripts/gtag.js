@@ -30,7 +30,6 @@ class CookieConsent {
       trackingId: 'G-81E77KGMGF',
       bannerDelay: 1000,
       fadeOutDuration: 300,
-      privacyPolicyUrl: '/cookies/',
       ...options,
     };
 
@@ -395,7 +394,6 @@ class CookieConsent {
     window.cookieConsentInstance = new CookieConsent({
       trackingId: 'G-81E77KGMGF',
       bannerDelay: 800,
-      privacyPolicyUrl: '/cookies/',
     });
   }
 
