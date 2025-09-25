@@ -1,3 +1,6 @@
+/** * Function to add Google Analytics tag dynamically
+ */
+
 function addGoogleAnalyticsTag(trackingId) {
   // Load the gtag.js script asynchronously
   const script = document.createElement('script');
@@ -205,13 +208,13 @@ class CookieConsent {
     acceptButton.textContent = "Sure bud, I'll help you out!";
     acceptButton.setAttribute('aria-label', 'Accept cookies');
 
-    const rejectButton = document.createElement('button');
-    rejectButton.className = 'nope-cookie-btn';
-    rejectButton.textContent = "Nah, I'm good";
-    rejectButton.setAttribute('aria-label', 'Decline cookies');
+    // const rejectButton = document.createElement('button');
+    // rejectButton.className = 'nope-cookie-btn';
+    // rejectButton.textContent = "Nah, I'm good";
+    // rejectButton.setAttribute('aria-label', 'Decline cookies');
 
     buttonContainer.appendChild(acceptButton);
-    buttonContainer.appendChild(rejectButton);
+    // buttonContainer.appendChild(rejectButton);
 
     content.appendChild(message);
     content.appendChild(buttonContainer);
@@ -357,10 +360,10 @@ class CookieConsent {
 
       // Add event listeners with proper cleanup
       const acceptButton = this.cookieContainer.querySelector('.cookie-btn');
-      const rejectButton = this.cookieContainer.querySelector('.nope-cookie-btn');
+      // const rejectButton = this.cookieContainer.querySelector('.nope-cookie-btn');
 
       acceptButton.addEventListener('click', () => this.handleAccept());
-      rejectButton.addEventListener('click', () => this.handleReject());
+      // rejectButton.addEventListener('click', () => this.handleReject());
 
       // Show banner with delay
       setTimeout(() => {
