@@ -1,6 +1,6 @@
 ---
-title: setup custom and secure mail domain with zoho
-summary: Click for more ...
+title: Setup Custom and Secure Mail Domain with Zoho
+summary: Tutorial guides you through setting up a custom and secure email domain using Zoho's free business email service, including SPF and DKIM configuration.
 date: 2024-11-02
 authors:
   - Mati: author.jpeg

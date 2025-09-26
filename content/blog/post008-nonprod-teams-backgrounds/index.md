@@ -1,6 +1,6 @@
 ---
-title: Nonprod teams backgrounds
-summary: Click for more ...
+title: Non/Prod Teams Backgrounds
+summary: Collection of humorous Microsoft Teams backgrounds to brighten up dreary work meetings.
 date: 2025-04-09
 authors:
   - Mati: author.jpeg
@@ -16,7 +16,7 @@ It seemed like a brilliant plan(at least to me). However not everyone appreciate
 
 If you’re stuck in a similar situation, why not give it a try? A little humor can go a long way in turning a dull meeting into something sparkling :tada:
 
-### My Collection of Funny Teams Backgrounds
+### My Collection of Funny MS Teams Backgrounds
 
 Here are some of my favorite Teams backgrounds :smiley:
 

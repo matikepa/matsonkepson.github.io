@@ -1,6 +1,6 @@
 ---
-title: How to train junior employees efficiently
-summary: or also known as "How to Train Your Dragon"...
+title: How to Train Junior Employees Efficiently
+summary: Outline of the efficient strategies for training junior employees, emphasizing foundational knowledge, real-world examples, and continuous feedback to foster their growth.
 date: 2025-07-04
 authors:
   - Mati: author.jpeg

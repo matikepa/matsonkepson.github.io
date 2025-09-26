@@ -1,6 +1,6 @@
 ---
-title: deploy argoCD with helm or terraform
-summary: Try argoCD with local k8s and terraform! Click for more ...
+title: Deploy ArgoCD with Helm or Terraform
+summary: Deploying ArgoCD on a local Kubernetes cluster using Terraform or Helm.
 date: 2024-11-08
 authors:
   - Mati: author.jpeg

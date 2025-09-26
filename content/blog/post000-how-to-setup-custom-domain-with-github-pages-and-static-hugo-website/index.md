@@ -1,6 +1,6 @@
 ---
-title: setup static page with hugo, github pages, actions and custom domain
-summary: Click for more ...
+title: Setup Static Page with Hugo, GitHub Pages, Actions and Custom Domain
+summary: This tutorial guides you through creating a static website using Hugo, hosting it on GitHub Pages with a custom domain, and automating deployment with GitHub Actions, all at no cost.
 date: 2024-11-01
 authors:
   - Mati: author.jpeg
