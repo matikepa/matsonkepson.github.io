@@ -20,7 +20,7 @@ DDATE=$(date +%Y-%m-%d)
 cat <<_EOF >"${NEW_POST}"/index.md
 ---
 title: ${TITLE}
-summary: Click for more ...
+summary: Write your summary here...
 date: ${DDATE}
 authors:
 

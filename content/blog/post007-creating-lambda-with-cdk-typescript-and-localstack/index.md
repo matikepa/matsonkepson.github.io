@@ -1,6 +1,6 @@
 ---
-title: creating lambda with CDK typescript and LocalStack
-summary: Click for more ...
+title: Creating Lambda with CDK, TypeScript, and LocalStack
+summary: Creating and deploying an AWS Lambda function using AWS CDK with TypeScript, while testing it locally via LocalStack.
 date: 2024-12-04
 authors:
   - Mati: author.jpeg

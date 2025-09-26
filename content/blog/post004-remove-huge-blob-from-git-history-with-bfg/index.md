@@ -1,6 +1,6 @@
 ---
-title: bfg - git history repo cleaner
-summary: Remove huge blobs from your git history repo! Click for more ...
+title: BFG - Git History Repo Cleaner
+summary: How to use the BFG repo cleaner to permanently remove large files from Git history and optimize repository size.
 date: 2024-11-11
 authors:
   - Mati: author.jpeg

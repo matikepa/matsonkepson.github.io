@@ -1,6 +1,6 @@
 ---
-title: run minikube on docker
-summary: You heard about kubernetes right?? Here are the steps how to run it locally with having docker installed only. Click for more ...
+title: Run Minikube on Docker
+summary: Step-by-step instructions to install and run Minikube locally using Docker.
 date: 2024-11-06
 authors:
   - Mati: author.jpeg
