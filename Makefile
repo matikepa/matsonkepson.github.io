@@ -63,8 +63,8 @@ build: ## Setup virtual environment and install dependencies
 	@echo "✅ Virtual environment created successfully."
 	@echo "📦 Upgrading pip and installing dependencies..."
 	@. $(VENV_ACTIVATE) && \
-		pip install --upgrade pip && \
-		pip install -r $(REQUIREMENTS) && \
+		uv pip install --upgrade pip && \
+		uv pip install -r $(REQUIREMENTS) && \
 		echo "✅ Build complete. Environment is ready." || \
 		{ echo "❌ Failed to install dependencies"; exit 1; }
 # 	@echo "🔍 JavaScript minification..."
