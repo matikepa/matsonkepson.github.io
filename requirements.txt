@@ -2,7 +2,7 @@ cfgv==3.4.0
 distlib==0.4.0
 filelock==3.19.1
 hugo==0.151.0
-identify==2.6.14
+identify==2.6.15
 jsmin==3.0.1
 libsass==0.23.0
 nodeenv==1.9.1
