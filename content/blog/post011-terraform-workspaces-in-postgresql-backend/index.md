@@ -3,14 +3,13 @@ title: Terraform Workspaces in PostgreSQL Backend
 summary: Terraform configuration that creates an S3 bucket and uses PostgreSQL as the backend storage.
 date: 2025-10-07
 authors:
-
   - Mati: author.jpeg
-
 ---
 
 ## Project Structure
 
 ---
+
 ```yaml
 terraform-postgres-project/
 │
@@ -28,6 +27,7 @@ terraform-postgres-project/
 ---
 
 ## main.tf
+
 ```hcl
 terraform {
   required_providers {
@@ -65,7 +65,7 @@ provider "postgresql" {
 ```hcl
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "my-terraform-state-bucket-${var.environment}"
-  
+
   lifecycle {
     prevent_destroy = true
   }
@@ -89,6 +89,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
 }
 
 ```
+
 ## variables.tf
 
 ```hcl
@@ -105,7 +106,9 @@ variable "environment" {
 }
 
 ```
+
 ## docker-compose.yml
+
 ```yaml
 services:
   postgres:
@@ -115,13 +118,12 @@ services:
       POSTGRES_USER: terraform
       POSTGRES_PASSWORD: terraformpassword
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
-
 ```
 
 ## Setup and initialization
