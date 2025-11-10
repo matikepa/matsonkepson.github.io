@@ -7,7 +7,7 @@ jsmin==3.0.1
 libsass==0.23.0
 nodeenv==1.9.1
 platformdirs==4.5.0
-pre_commit==4.3.0
+pre_commit==4.4.0
 PyYAML==6.0.3
 rcssmin==1.2.2
 virtualenv==20.35.4
