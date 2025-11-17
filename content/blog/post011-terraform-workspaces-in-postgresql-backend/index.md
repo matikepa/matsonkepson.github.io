@@ -138,7 +138,7 @@ pg_ctl -D /var/lib/postgresql/data -m fast restart
 
 ```
 
-## docker-compose.yml
+## compose.yml
 
 ```yaml
 services:
@@ -184,7 +184,9 @@ volumes:
 
 ```bash
 # Start PostgreSQL container
-docker-compose up -d
+docker-compose up -d 
+# alternatively
+podman-compose -f compose.yaml up
 
 # Initialize Terraform
 terraform init
