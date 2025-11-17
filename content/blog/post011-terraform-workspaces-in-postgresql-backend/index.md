@@ -153,8 +153,8 @@ services:
     volumes:
       - ./init-postgres.sh:/docker-entrypoint-initdb.d/init-postgres.sh
       - postgres_data:/var/lib/postgresql/data
-    extra_hosts:
-      - 'host.docker.internal:172.17.0.1'
+    networks:
+      - pgadmin-network
 
   pgadmin:
     image: dpage/pgadmin4
@@ -168,8 +168,12 @@ services:
       - pgadmin_data:/var/lib/pgadmin
     depends_on:
       - postgres
-    extra_hosts:
-      - 'host.docker.internal:172.17.0.1'
+    networks:
+      - pgadmin-network
+
+networks:
+  pgadmin-network:
+    driver: bridge
 
 volumes:
   postgres_data:
