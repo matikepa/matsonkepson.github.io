@@ -6,7 +6,7 @@ authors:
   - Mati: author.jpeg
 ---
 
-This blog post explores how to set up Terraform workspaces with a PostgreSQL backend to manage infrastructure across multiple environments (dev, stage, prod). Rather than relying on AWS S3 for state storage, we'll use PostgreSQL running in Docker, providing a lightweight local alternative that simplifies development workflows.
+This blog post explores how to set up Terraform workspaces with a PostgreSQL backend to manage infrastructure across multiple environments (develop, stage, prod). Rather than relying on AWS S3 for state storage, we'll use PostgreSQL running in Docker, providing a lightweight local alternative that simplifies development workflows.
 
 You'll learn how to configure Terraform providers for AWS and PostgreSQL, create some example boilerplate code, and manage different deployment environments using workspaces. This setup is ideal for teams looking to practice infrastructure-as-code principles with flexible state management while maintaining secure, versioned state files while having terraform enterprise experience.
 
@@ -18,7 +18,7 @@ You'll learn how to configure Terraform providers for AWS and PostgreSQL, create
 terraform-postgres-project/
 │
 ├── environments/
-│   ├── dev.tfvars
+│   ├── develop.tfvars
 │   ├── stage.tfvars
 │   └── prod.tfvars
 ├── main.tf
@@ -68,7 +68,7 @@ provider "postgresql" {
 
 ```hcl
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state-bucket-${var.environment}"
+  bucket = "my-example-tf-bucket-12345x90-${var.environment}"
 
   lifecycle {
     prevent_destroy = true
@@ -100,13 +100,13 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
 variable "region" {
   description = "AWS Region"
   type        = string
-  default     = "us-east-1"
+  default     = "eu-central-1"
 }
 
 variable "environment" {
   description = "Deployment environment"
   type        = string
-  default     = "dev"
+  default     = "develop"
 }
 
 ```
@@ -184,7 +184,7 @@ volumes:
 
 ```bash
 # Start PostgreSQL container
-docker-compose up -d 
+docker-compose up -d
 # alternatively
 podman-compose -f compose.yaml up
 
@@ -192,10 +192,10 @@ podman-compose -f compose.yaml up
 terraform init
 
 # Create S3 Bucket and Configure State Backend
-terraform workspace new dev
-terraform workspace select dev
+terraform workspace new develop
+terraform workspace select develop
 terraform plan
-terraform apply -var="environment=dev"
+terraform apply -var="environment=devevlop"
 
 # Switch between environments
 terraform workspace select stage

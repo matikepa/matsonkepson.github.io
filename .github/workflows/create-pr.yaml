@@ -7,7 +7,7 @@ jobs:
   createPullRequestforMain:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: main
       - name: Get latest changes
@@ -16,7 +16,7 @@ jobs:
           git reset --hard develop
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v7.0.8
+        uses: peter-evans/create-pull-request@v7.0.9
         with:
           token: ${{ secrets.PR_TOKEN }}
           commit-message: Update main
