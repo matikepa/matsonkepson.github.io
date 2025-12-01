@@ -68,7 +68,7 @@ provider "postgresql" {
 
 ```hcl
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state-bucket-${var.environment}"
+  bucket = "my-example-tf-bucket-12345x90-${var.environment}"
 
   lifecycle {
     prevent_destroy = true
@@ -100,13 +100,13 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "encryption" {
 variable "region" {
   description = "AWS Region"
   type        = string
-  default     = "us-east-1"
+  default     = "eu-central-1"
 }
 
 variable "environment" {
   description = "Deployment environment"
   type        = string
-  default     = "dev"
+  default     = "develop"
 }
 
 ```
