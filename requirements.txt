@@ -1,7 +1,7 @@
 cfgv==3.5.0
 distlib==0.4.0
 filelock==3.20.1
-hugo==0.152.0
+hugo==0.153.0
 identify==2.6.15
 jsmin==3.0.1
 libsass==0.23.0
