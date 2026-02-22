@@ -162,6 +162,9 @@ spec:
       command: ['/bin/bash', '-c', '. /tmp/startup.sh; sleep infinity']
       stdin: true
       tty: true
+      # env:
+      # - name: URL
+      #   value: "https://YOUR_APP_URL/hello"
       resources:
         requests:
           cpu: '10m'
