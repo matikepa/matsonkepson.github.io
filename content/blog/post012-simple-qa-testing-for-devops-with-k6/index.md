@@ -131,7 +131,7 @@ To apply the manifest directly from your shell, run:
 
 ```bash
 cat <<'EOFF' | kubectl apply -f -
-<paste the manifest here>
+<BELOW_YAML_MANIFEST_HERE>
 EOFF
 ```
 
