@@ -11,9 +11,12 @@ authors:
 ---
 
 In this post I would like to present an easy yet powerful tool to run load-test simulations.
-Usually I use a simple while-true loop to generate sample load, but this time I tried something more powerful that pushes the app to its limits.
+Usually I use a simple while-true loop to generate sample load, but this time I had to use something
+more powerful that pushes the app to its limits.
 
-The [K6](https://github.com/grafana/k6) from [Grafana Labs](https://k6.io/) is simple yet very powerful and can create different [scenarios](https://grafana.com/docs/k6/latest/using-k6/scenarios/), but we will focus on two simple ones with URL testing:
+The [K6](https://github.com/grafana/k6) from [Grafana Labs](https://k6.io/) is simple yet very powerful
+and can create different [scenarios](https://grafana.com/docs/k6/latest/using-k6/scenarios/),
+but we will focus on two simple ones with URL testing:
 
 - the constant load, aka.: [constant-VUs](https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/constant-vus/)
 - the wave pattern, aka.: [ramping-VUs](https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/ramping-vus/)
@@ -38,7 +41,9 @@ VUS=1500
 DUR='1h'
 URL='https://YOUR_APP_URL/hello'
 
-echo 'import http from "k6/http";import { sleep } from "k6"; export let options = { vus: "'${VUS}'", duration: "'${DUR}'" }; export default function () { http.get("'${URL}'"); sleep(1); }' | k6 run -
+echo 'import http from "k6/http";import { sleep } from "k6";
+export let options = { vus: "'${VUS}'", duration: "'${DUR}'" };
+export default function () { http.get("'${URL}'"); sleep(1); }' | k6 run -
 ```
 
 ### Dump to file and run | constant-VUs
@@ -210,19 +215,19 @@ data:
     // Accept either URL or TARGET for flexibility.
     let TARGET_URL = __ENV.URL || __ENV.TARGET;
 
-    // Runtime validation: fail early with a clear message if no URL is provided.
+    // Runtime validation
     if (!TARGET_URL) {
       console.error(
-        "Missing required target URL. Set environment variable 'URL' (or 'TARGET') when running k6.\n" +
+        "Missing required target URL. Set environment variable 'URL' (or 'TARGET'), then run k6.\n" +
         "Example: k6 run --env URL='https://example.com' /tmp/wavetest.js"
       );
       // Throwing here aborts the test run with a clear error.
-      throw new Error("Missing required environment variable 'URL' (or 'TARGET'). Aborting k6 run.");
+      throw new Error("Missing required environment variable 'URL' (or 'TARGET'). Aborting run!");
     }
 
-    // Basic validation: ensure protocol is present; if not, prepend http:// and warn.
+    // Protocol validation
     if (!/^https?:\/\//i.test(TARGET_URL)) {
-      console.warn(`Target URL "${TARGET_URL}" does not include a protocol (http/https). Prepending "http://".`);
+      console.warn(`URL "${TARGET_URL}" does not include a protoco. Prepending "http://".`);
       TARGET_URL = "http://" + TARGET_URL;
     }
 
