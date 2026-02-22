@@ -13,7 +13,7 @@ authors:
 In this post I would like to present an easy yet powerful tool to run load-test simulations.
 Usually I use a simple while-true loop to generate sample load, but this time I tried something more powerful that pushes the app to its limits.
 
-The [K6](https://k6.io/about/) is simple yet very powerful and can create different [scenarios](https://grafana.com/docs/k6/latest/using-k6/scenarios/), but we will focus on two simple ones:
+The [K6](https://github.com/grafana/k6) from [Grafana Labs](https://k6.io/) is simple yet very powerful and can create different [scenarios](https://grafana.com/docs/k6/latest/using-k6/scenarios/), but we will focus on two simple ones with URL testing:
 
 - the constant load, aka.: [constant-VUs](https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/constant-vus/)
 - the wave pattern, aka.: [ramping-VUs](https://grafana.com/docs/k6/latest/using-k6/scenarios/executors/ramping-vus/)
@@ -25,8 +25,9 @@ The [K6](https://k6.io/about/) is simple yet very powerful and can create differ
 ### Download from sources
 
 ```bash
-wget https://github.com/grafana/k6/releases/download/v1.6.0/k6-v1.6.0-linux-arm64.tar.gz
-tar -xzf k6-v1.6.0-linux-arm64.tar.gz -C ~/bin/ --strip-components=1
+export VERSION="1.6.1"
+wget https://github.com/grafana/k6/releases/download/v$VERSION/k6-v$VERSION-linux-arm64.tar.gz
+tar -xzf k6-v$VERSION-linux-arm64.tar.gz -C /usr/bin/ --strip-components=1
 k6 version
 ```
 
@@ -192,8 +193,9 @@ data:
     #!/bin/bash
     apt update
     apt install -y gnupg2 curl ca-certificates lsb-release wget curl
-    wget https://github.com/grafana/k6/releases/download/v1.6.0/k6-v1.6.0-linux-arm64.tar.gz
-    tar -xzf k6-v1.6.0-linux-arm64.tar.gz -C /usr/bin/ --strip-components=1
+    export VERSION="1.6.1"
+    wget https://github.com/grafana/k6/releases/download/v$VERSION/k6-v$VERSION-linux-arm64.tar.gz
+    tar -xzf k6-v$VERSION-linux-arm64.tar.gz -C /usr/bin/ --strip-components=1
     k6 version
   wavetest.js: |
     import http from "k6/http";
