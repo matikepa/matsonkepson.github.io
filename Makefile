@@ -3,6 +3,7 @@
 PYTHON = python3
 VENV_DIR = .venv
 VENV_ACTIVATE = $(VENV_DIR)/bin/activate
+VENV_HUGO = $(VENV_DIR)/bin/hugo
 HUGO_CACHE_DIR = ~/.cache/hugo_cache
 PUBLIC_DIR = ./public
 RESOURCES_DIR = ./resources
@@ -63,8 +64,13 @@ build: ## Setup virtual environment and install dependencies
 	@echo "✅ Virtual environment created successfully."
 	@echo "📦 Upgrading pip and installing dependencies..."
 	@. $(VENV_ACTIVATE) && \
-		uv pip install --upgrade pip && \
-		uv pip install -r $(REQUIREMENTS) && \
+		if command -v uv > /dev/null 2>&1; then \
+			uv pip install --upgrade pip && \
+			uv pip install -r $(REQUIREMENTS); \
+		else \
+			python -m pip install --upgrade pip && \
+			python -m pip install -r $(REQUIREMENTS); \
+		fi && \
 		echo "✅ Build complete. Environment is ready." || \
 		{ echo "❌ Failed to install dependencies"; exit 1; }
 # 	@echo "🔍 JavaScript minification..."
@@ -83,6 +89,10 @@ run: ## Run Hugo server (requires environment setup)
 		echo "❌ Virtual environment is corrupted. Please run 'make build' first."; \
 		exit 1; \
 	fi
+	@if [ ! -x "$(VENV_HUGO)" ]; then \
+		echo "❌ Hugo binary not found in virtual environment. Please run 'make build' first."; \
+		exit 1; \
+	fi
 	@echo "🔍 Checking dependencies..."
 	@. $(VENV_ACTIVATE) && python -c "import pre_commit" 2>/dev/null || { \
 		echo "❌ Dependencies not installed. Please run 'make build' first."; \
@@ -90,7 +100,7 @@ run: ## Run Hugo server (requires environment setup)
 	}
 	@echo "✅ Environment ready."
 	@echo "🚀 Starting full Hugo build..."
-	hugo server --disableFastRender
+	@$(VENV_HUGO) server --disableFastRender
 
 # Format: install and run pre-commit hooks
 .PHONY: format
