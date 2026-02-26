@@ -1,91 +1,244 @@
 ############################
+## LoveIt Theme Parameters
+############################
+
+# Site default theme ["auto", "light", "dark"]
+defaultTheme: auto
+
+# Public git repo url
+gitRepo: 'https://github.com/matikepa/matsonkepson.github.io'
+
+# Date format
+dateFormat: '2006-01-02'
+
+# Website title for Open Graph and Twitter Cards
+title: 'Mati Kepa | Tech Blog'
+
+# Website description for RSS, SEO, Open Graph and Twitter Cards
+description: 'Personal tech blog by Mati Kepa covering DevOps, Kubernetes, Terraform, AWS, Docker, CI/CD, and software engineering best practices.'
+
+# Website images for Open Graph and Twitter Cards
+images:
+  - /images/avatar.jpeg
+
+############################
 ## Author
 ############################
 
 author:
   name: 'Mateusz (Mati) Kępa'
-  image: author.jpeg
-  greeting: 'Hello there and welcome to my personal blog page! :hugs:'
-  icon: ':wave:'
+  email: 'devnull@kepa.eu.org'
+  link: 'https://kepa.eu.org'
 
 ############################
-## Links
+## Header
 ############################
 
-links:
-  - github: https://github.com/matikepa/matsonkepson.github.io
-  # - gitlab:
-  # - facebook:
-  # - x-twitter:
-  # - mastodon:
-  - linkedin: https://linkedin.com/in/matikepa/
-  # - instagram:
-  # - reddit:
-  # - telegram:
-  # - whatsapp:
-  # - signal:
-  # - codepen:
-  # - dev:
-  - email: mailto:devnull@kepa.eu.org?subject=Contact%20from%20website%20link%20kepa.eu.org&body=Your%20message%20goes%20here...
-  # - website:
-  # - link:
-  # - discord:
-  # - orcid:
-  # - slack:
-  - stack-overflow: https://stackoverflow.com/users/7786358/
-  # - twitch:
-  # - patreon:
-  # - soundcloud:
-  # - dribbble:
-  # - stack-exchange:
-  # - tiktok:
-  # - youtube:
-  # - keybase:
-  # - flickr:
-  # - tumblr:
-  # - kickstarter:
-  # - snapchat:
-  # - bluesky:
-  # - bitbucket:
-  # - bandcamp:
-  # - etsy:
-  # - spotify:
-  # - pinterest:
-  # - strava:
-  # - untappd:
-  # - skype:
-  # - medium:
-  # - foursquare:
-  # - apple:
-  # - amazon:
-  # - google:
-  # - paypal:
-  # - pgp-key:
-  # - windows:
-  # - codeberg:
-  # - pixelfed:
-  # - substack:
-  - newsletter: /index.xml
+header:
+  desktopMode: fixed
+  mobileMode: auto
+  title:
+    logo: ''
+    name: 'kepa.eu.org'
+    pre: '<i class="fas fa-terminal fa-fw" aria-hidden="true"></i>'
+    post: ''
+    typeit: false
 
-###############################
-## OpenGraph & Twitter Cards
-###############################
+############################
+## Footer
+############################
 
-title: 'Mati Kepa'
-description: 'Build with Qubt & Hugo & GitHub Pages'
-images:
-  - author.jpeg
+footer:
+  enable: true
+  custom: ''
+  hugo: true
+  copyright: true
+  author: true
+  since: 2024
+  license: '<a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
 
-###############################
-## Latex math
-###############################
+############################
+## Section (all posts) page
+############################
 
-# To configure Latex rendering on all pages, change to: true
-#
-# To only add Latex rendering on pages that need it, set in the frontmatter
-# of each page that needs it:
-#   params:
-#     math: true
-# This option will allow better performance, as it'll only load
-# the extra JS when needed.
-math: false
+section:
+  paginate: 20
+  dateFormat: '01-02'
+  rss: 10
+
+############################
+## List page
+############################
+
+list:
+  paginate: 20
+  dateFormat: '01-02'
+  rss: 10
+
+############################
+## App icon
+############################
+
+app:
+  title: 'kepa.eu.org'
+  noFavicon: false
+  svgFavicon: ''
+  themeColor: '#ffffff'
+  iconColor: '#5bbad5'
+  tileColor: '#da532c'
+
+############################
+## Search
+############################
+
+search:
+  enable: true
+  type: lunr
+  contentLength: 4000
+  placeholder: 'Search...'
+  maxResultLength: 10
+  snippetLength: 50
+  highlightTag: em
+  absoluteURL: false
+
+############################
+## Home page
+############################
+
+home:
+  rss: 10
+  profile:
+    enable: true
+    gravatarEmail: ''
+    avatarURL: '/images/avatar.jpeg'
+    title: 'Mati Kepa'
+    subtitle: 'some random IT dude'
+    typeit: false
+    social: true
+    disclaimer: ''
+  posts:
+    enable: true
+    paginate: 6
+
+############################
+## Social links
+############################
+
+social:
+  GitHub: matikepa
+  Linkedin: matikepa
+  Stackoverflow: '7786358'
+  Email:
+    id: 'devnull@kepa.eu.org?subject=Contact%20from%20website%20link%20kepa.eu.org&body=Your%20message%20goes%20here...'
+    prefix: 'mailto:'
+    title: 'Email'
+  RSS: true
+
+############################
+## Page global config
+############################
+
+page:
+  hiddenFromHomePage: false
+  hiddenFromSearch: false
+  twemoji: false
+  lightgallery: true
+  ruby: false
+  fraction: false
+  fontawesome: true
+  linkToMarkdown: false
+  rssFullText: true
+
+  # Table of contents
+  toc:
+    enable: true
+    keepStatic: false
+    auto: true
+
+  # KaTeX math
+  math:
+    enable: false
+
+  # Code config
+  code:
+    copy: true
+    maxShownLines: 50
+
+  # Share links
+  share:
+    enable: true
+    X: true
+    Facebook: true
+    Linkedin: true
+    Whatsapp: true
+    Reddit: true
+    HackerNews: true
+    Telegram: true
+
+  # Comment config
+  comment:
+    enable: false
+
+  # SEO config
+  seo:
+    images: []
+    publisher:
+      name: 'Mati Kepa'
+      logoUrl: '/images/avatar.jpeg'
+
+  # Custom JS/CSS libraries
+  library:
+    js:
+      customJS: js/custom.js
+
+############################
+## Analytics
+############################
+
+analytics:
+  enable: true
+  google:
+    id: 'G-81E77KGMGF'
+    anonymizeIP: false
+    respectDoNotTrack: true
+
+############################
+## Cookie consent
+############################
+
+cookieconsent:
+  enable: false
+
+############################
+## SEO config
+############################
+
+seo:
+  image: '/images/avatar.jpeg'
+  thumbnailUrl: '/images/avatar.jpeg'
+
+############################
+## Site verification
+############################
+
+verification:
+  google: ''
+  bing: ''
+  yandex: ''
+  pinterest: ''
+  baidu: ''
+
+############################
+## CDN config
+############################
+
+cdn:
+  data: ''
+
+############################
+## Compatibility
+############################
+
+compatibility:
+  polyfill: false
+  objectFit: false

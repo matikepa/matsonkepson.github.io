@@ -1,9 +1,18 @@
 ---
-title: Testing GitHub Workflows with ACT Locally - Complete Guide
-summary: Learn how to test GitHub Actions locally using ACT tool, handle secrets, debug workflows, and avoid common pitfalls on macOS M1
+title: 'Testing GitHub Workflows with ACT Locally - Complete Guide'
+description: 'Learn how to test GitHub Actions locally using ACT tool, handle secrets, debug workflows, and avoid common pitfalls on macOS M1.'
 date: 2025-08-19
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - GitHub Actions
+  - ACT
+  - CI/CD
+  - Local Testing
+  - macOS
+categories:
+  - DevOps
+  - CI/CD
+lightgallery: true
 ---
 
 ## preface

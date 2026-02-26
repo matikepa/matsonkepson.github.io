@@ -1,9 +1,17 @@
 ---
-title: BFG - Git History Repo Cleaner
-summary: How to use the BFG repo cleaner to permanently remove large files from Git history and optimize repository size.
+title: 'BFG - Git History Repo Cleaner'
+description: 'How to use the BFG repo cleaner to permanently remove large files from Git history and optimize repository size.'
 date: 2024-11-11
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - Git
+  - BFG
+  - Repository Management
+  - DevOps Tools
+categories:
+  - DevOps
+  - Git
+lightgallery: true
 ---
 
 ### preface

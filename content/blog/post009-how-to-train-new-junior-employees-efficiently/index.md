@@ -1,9 +1,17 @@
 ---
-title: How to Train Junior Employees Efficiently
-summary: Outline of the efficient strategies for training junior employees, emphasizing foundational knowledge, real-world examples, and continuous feedback to foster their growth.
+title: 'How to Train Junior Employees Efficiently'
+description: 'Outline of the efficient strategies for training junior employees, emphasizing foundational knowledge, real-world examples, and continuous feedback to foster their growth.'
 date: 2025-07-04
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - Mentoring
+  - Team Management
+  - Junior Developers
+  - Best Practices
+categories:
+  - Career
+  - Leadership
+lightgallery: true
 ---
 
 ### A brief message

@@ -1,9 +1,15 @@
 ---
-title: Non/Prod Teams Backgrounds
-summary: Collection of humorous Microsoft Teams backgrounds to brighten up dreary work meetings.
+title: 'Non/Prod Teams Backgrounds'
+description: 'Collection of humorous Microsoft Teams backgrounds to brighten up dreary work meetings.'
 date: 2025-04-09
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - Microsoft Teams
+  - Fun
+  - Remote Work
+categories:
+  - Fun
+lightgallery: true
 ---
 
 ## Something Funny Today

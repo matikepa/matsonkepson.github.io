@@ -1,15 +1,15 @@
 ---
-# don't change
-type: misc
-
-# change these
-jobTitle: some random IT dude
-name: Mati
-bio: true
-icon: ':coffee:'
+title: 'About Me'
+date: 2024-11-01
+type: 'about'
+description: 'some random IT dude'
+keywords:
+  - about
+  - mati kepa
+  - devops
 ---
 
-Hello there! :hugs:
+## Hello there! :wave:
 
 My name is Mateusz, but you can call me **Mati** for simplicity. I am originally from Poland :poland: but I live in
 Austria :austria:.
@@ -22,6 +22,6 @@ In addition to my technical skills, I am dedicated to continuous learning and st
 technological advancements. I thrive in collaborative environments and enjoy problem-solving, always aiming to deliver
 high-quality solutions.
 
-|
-:--:|
-Blog hosted thanks to [**GitHub Pages** :robot:](https://pages.github.com/)
+---
+
+> Blog hosted thanks to [**GitHub Pages** :robot:](https://pages.github.com/)
