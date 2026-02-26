@@ -20,13 +20,18 @@ echo "Installing dependencies..."
 python3 -m pip install --upgrade pip || { echo "Failed to upgrade pip"; exit 1; }
 python3 -m pip install -r requirements.txt || { echo "Failed to install requirements"; exit 1; }
 
+if [ ! -x .venv/bin/hugo ]; then
+    echo "Failed to find Hugo in virtual environment"
+    exit 1
+fi
+
 # Run pre-commit hooks
 pre-commit run --all-files --verbose
 
 #build with proper symlinks
 echo 'building new one ...'
 # hugo --environment prod
-hugo serve
+.venv/bin/hugo serve
 
 ## misc
 #missing customisations of my theme template
