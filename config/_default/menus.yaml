@@ -9,18 +9,18 @@ main:
     title: 'Blog Posts'
     weight: 10
     pre: '<i class="fas fa-archive fa-fw" aria-hidden="true"></i>'
-  - identifier: tags
-    name: Tags
-    url: /tags/
-    title: 'Tags'
-    weight: 20
-    pre: '<i class="fas fa-tags fa-fw" aria-hidden="true"></i>'
+  # - identifier: tags
+  #   name: Tags
+  #   url: /tags/
+  #   title: 'Tags'
+  #   weight: 20
+  #   pre: '<i class="fas fa-tags fa-fw" aria-hidden="true"></i>'
   - identifier: categories
     name: Categories
     url: /categories/
     title: 'Categories'
     weight: 30
-    pre: '<i class="fas fa-th fa-fw" aria-hidden="true"></i>'
+    pre: '<i class="fas fa-tags fa-fw" aria-hidden="true"></i>'
   - identifier: about
     name: About
     url: /about/

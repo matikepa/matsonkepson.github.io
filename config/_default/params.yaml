@@ -82,7 +82,7 @@ list:
 app:
   title: 'kepa.eu.org'
   noFavicon: false
-  svgFavicon: ''
+  svgFavicon: 'assets/favicon.svg'
   themeColor: '#ffffff'
   iconColor: '#5bbad5'
   tileColor: '#da532c'
@@ -166,7 +166,7 @@ page:
 
   # Share links
   share:
-    enable: true
+    enable: false
     X: true
     Facebook: true
     Linkedin: true
@@ -200,7 +200,7 @@ analytics:
   google:
     id: 'G-81E77KGMGF'
     anonymizeIP: false
-    respectDoNotTrack: true
+    respectDoNotTrack: false
 
 ############################
 ## Cookie consent
