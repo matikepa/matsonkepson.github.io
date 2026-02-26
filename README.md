@@ -23,7 +23,7 @@ Welcome to my personal blog repository! This is the source code for my website w
 
 ## Local Development
 
-[Installing Hugo](https://gohugo.io/installation/) is optional since we use python3 virtual env...
+[Installing Hugo](https://gohugo.io/installation/) is optional since Hugo is installed from [requirements.txt](requirements.txt) inside the Python virtual environment.
 
 To run this blog locally:
 

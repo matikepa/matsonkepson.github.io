@@ -12,6 +12,7 @@ jobs:
       pages: read
     env:
       GH_TOKEN: ${{ secrets.ANALYTICS_TOKEN }}
+      ANALYTICS_BRANCH: analytics-data
     steps:
       - name: Install GitHub CLI
         run: |
@@ -19,6 +20,15 @@ jobs:
           sudo apt update
           sudo apt install gh jq -y
       - uses: actions/checkout@v6
+      - name: Switch to analytics branch
+        run: |
+          git fetch origin
+          if git show-ref --verify --quiet "refs/remotes/origin/${ANALYTICS_BRANCH}"; then
+            git checkout -B "${ANALYTICS_BRANCH}" "origin/${ANALYTICS_BRANCH}"
+          else
+            echo "Branch ${ANALYTICS_BRANCH} does not exist yet. Creating it from current commit."
+            git checkout -B "${ANALYTICS_BRANCH}"
+          fi
       - name: Fetch Repository Analytics
         run: |
           echo "Fetching repository analytics..."
@@ -83,5 +93,5 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Add analytics data for $(date +%Y-%m-%d)"
-            git push
+            git push --set-upstream origin "${ANALYTICS_BRANCH}"
           fi
