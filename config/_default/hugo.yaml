@@ -1,5 +1,6 @@
 ############################
-## CHANGE THESE
+## Hugo Site Configuration
+## LoveIt Theme
 ############################
 
 baseURL: 'https://kepa.eu.org/'
@@ -10,24 +11,83 @@ title: 'kepa.eu.org'
 ############################
 
 enableEmoji: true
-disableKinds: ['taxonomy', 'term']
-languageCode: 'en-US'
+enableRobotsTXT: true
+enableGitInfo: false
+languageCode: 'en'
+languageName: 'English'
+hasCJKLanguage: false
 timeZone: Etc/UTC
 
-## This part is being overwritten by the manually created file
-# enableRobotsTXT: true
+# Copyright for SEO schema
+copyright: '© 2024-2026 Mati Kepa'
 
-minify:
-  disableXML: true
-  minifyOutput: true
+# Ignore some build errors
+ignoreErrors:
+  - error-remote-getjson
+  - error-missing-instagram-accesstoken
 
+# Pagination
+pagination:
+  pagerSize: 10
+
+# Sitemap
 sitemap:
   filename: sitemap.xml
-  changefreq: monthly
-  priority: 0.6
+  changefreq: weekly
+  priority: 0.5
 
-security:
-  allow_frame: false
-  csp:
-    policy: ''
-    report_only: false
+# Permalinks
+permalinks:
+  blog: ':contentbasename'
+
+# Markup
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    renderer:
+      unsafe: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 6
+
+# Media types for markdown output
+mediaTypes:
+  text/plain:
+    suffixes:
+      - md
+
+# Output formats
+outputFormats:
+  MarkDown:
+    mediaType: text/plain
+    isPlainText: true
+    isHTML: false
+
+# Outputs - JSON needed for LoveIt search
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+  page:
+    - HTML
+    - MarkDown
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS

@@ -1,9 +1,17 @@
 ---
-title: Run Minikube on Docker
-summary: Step-by-step instructions to install and run Minikube locally using Docker.
+title: 'Run Minikube on Docker'
+description: 'Step-by-step instructions to install and run Minikube locally using Docker.'
 date: 2024-11-06
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - Kubernetes
+  - Minikube
+  - Docker
+  - Local Development
+categories:
+  - Kubernetes
+  - DevOps
+lightgallery: true
 ---
 
 ### preface

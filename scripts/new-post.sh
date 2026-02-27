@@ -19,14 +19,18 @@ DDATE=$(date +%Y-%m-%d)
 
 cat <<_EOF >"${NEW_POST}"/index.md
 ---
-title: ${TITLE}
-summary: Write your summary here...
+title: '${TITLE}'
+description: 'Write your summary here...'
 date: ${DDATE}
-authors:
-
-  - Mati: author.jpeg
-
+draft: true
+author: 'Mati'
+tags:
+  - tag1
+categories:
+  - DevOps
+lightgallery: true
 ---
+
 
 ## preface
 

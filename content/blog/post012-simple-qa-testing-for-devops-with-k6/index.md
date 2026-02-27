@@ -1,9 +1,18 @@
 ---
-title: QA for DevOps using k6
-summary: 'Quick guide to using k6 for load-testing: constant-VUs and ramping-VUs (wave) pattern scenarios, with examples for local and Kubernetes runs.'
+title: 'QA for DevOps using k6'
+description: 'Quick guide to using k6 for load-testing: constant-VUs and ramping-VUs (wave) pattern scenarios, with examples for local and Kubernetes runs.'
 date: 2026-02-22
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - k6
+  - Load Testing
+  - QA
+  - Performance
+  - Kubernetes
+categories:
+  - Testing
+  - DevOps
+lightgallery: true
 ---
 
 ## Preface

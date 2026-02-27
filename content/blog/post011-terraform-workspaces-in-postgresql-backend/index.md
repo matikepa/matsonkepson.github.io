@@ -1,9 +1,18 @@
 ---
-title: Terraform Workspaces in PostgreSQL Backend
-summary: Terraform configuration that creates an S3 bucket and uses PostgreSQL as the backend storage.
+title: 'Terraform Workspaces in PostgreSQL Backend'
+description: 'Terraform configuration that creates an S3 bucket and uses PostgreSQL as the backend storage.'
 date: 2025-10-07
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - Terraform
+  - PostgreSQL
+  - AWS S3
+  - IaC
+  - Workspaces
+categories:
+  - IaC
+  - DevOps
+lightgallery: true
 ---
 
 This blog post explores how to set up Terraform workspaces with a PostgreSQL backend to manage infrastructure across multiple environments (develop, stage, prod). Rather than relying on AWS S3 for state storage, we'll use PostgreSQL running in Docker, providing a lightweight local alternative that simplifies development workflows.
