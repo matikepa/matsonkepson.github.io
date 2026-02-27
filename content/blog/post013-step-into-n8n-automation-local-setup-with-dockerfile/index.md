@@ -49,26 +49,25 @@ podman compose up -d
 ```yaml
 services:
   n8n:
-    image: n8nio/n8n:1
+    image: n8nio/n8n:stable
     environment:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=postgres
       - DB_POSTGRESDB_DATABASE=n8n
       - DB_POSTGRESDB_USER=n8n
       - DB_POSTGRESDB_PASSWORD=secret
-      - N8N_BASIC_AUTH_ACTIVE=true
-      - N8N_BASIC_AUTH_USER=admin
-      - N8N_BASIC_AUTH_PASSWORD=changeme
       - N8N_RUNNERS_ENABLED=true
       - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
       - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
       - NODE_OPTIONS=--no-deprecation
+      - N8N_SECURE_COOKIE=false
+      - N8N_HOST=localhost
+      - N8N_RUNNERS_PYTHON_ENABLED=true
     ports: ['5678:5678']
     volumes:
       - n8n_data:/home/node/.n8n
     networks:
       - n8n_network
-
   postgres:
     image: postgres:18.1
     environment:
@@ -76,15 +75,14 @@ services:
       - POSTGRES_USER=n8n
       - POSTGRES_PASSWORD=secret
     volumes:
-      - postgres_data:/var/lib/postgresql
+      - n8n_postgres_data:/var/lib/postgresql
       # Uncomment the line below to expose PostgreSQL to external connections.
       # - ./init-postgres.sh:/docker-entrypoint-initdb.d/init-postgres.sh
     # ports: ["5432:5432"]  # uncomment to expose PostgreSQL on the host
     networks:
       - n8n_network
-
   pgadmin:
-    image: dpage/pgadmin4:9.11
+    image: dpage/pgadmin4:9.12
     container_name: pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: 'admin@local.host'
@@ -92,27 +90,25 @@ services:
     ports:
       - 5050:80
     volumes:
-      - pgadmin_data:/var/lib/pgadmin
+      - n8n_pgadmin_data:/var/lib/pgadmin
     depends_on:
       - postgres
     networks:
       - n8n_network
-
 volumes:
   n8n_data:
-  postgres_data:
-  pgadmin_data:
-
+  n8n_postgres_data:
+  n8n_pgadmin_data:
 networks:
   n8n_network:
 ```
 
 Once the containers are running, open these URLs in your browser:
 
-| Service | URL                   | Credentials                  |
-| ------- | --------------------- | ---------------------------- |
-| n8n     | http://localhost:5678 | `admin` / `changeme`         |
-| pgAdmin | http://localhost:5050 | `admin@local.host` / `admin` |
+| Service | URL                                            | Credentials                  |
+| ------- | ---------------------------------------------- | ---------------------------- |
+| n8n     | [http://localhost:5678](http://localhost:5678) | `please register`            |
+| pgAdmin | [http://localhost:5050](http://localhost:5050) | `admin@local.host` / `admin` |
 
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: 'Your first n8n workflow: weather forecast via Telegram'
 description: 'Learn how to create your first n8n workflow that sends a daily weather forecast via Telegram.'
-date: 2026-02-26
+date: 2026-02-28
+draft: true
 author: 'Mati'
 tags:
   - n8n
