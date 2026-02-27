@@ -44,7 +44,9 @@ docker compose up -d
 podman compose up -d
 ```
 
-### The Compose file
+### docker-compose.yml
+
+Please unfold the working example of docker compose file below.
 
 ```yaml
 services:

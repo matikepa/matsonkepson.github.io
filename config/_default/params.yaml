@@ -97,7 +97,7 @@ search:
   contentLength: 4000
   placeholder: 'Search...'
   maxResultLength: 10
-  snippetLength: 50
+  snippetLength: 30
   highlightTag: em
   absoluteURL: false
 
@@ -162,7 +162,7 @@ page:
   # Code config
   code:
     copy: true
-    maxShownLines: 50
+    maxShownLines: 60
 
   # Share links
   share:
