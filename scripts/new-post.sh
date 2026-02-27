@@ -22,6 +22,7 @@ cat <<_EOF >"${NEW_POST}"/index.md
 title: '${TITLE}'
 description: 'Write your summary here...'
 date: ${DDATE}
+draft: true
 author: 'Mati'
 tags:
   - tag1

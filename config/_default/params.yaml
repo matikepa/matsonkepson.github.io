@@ -113,12 +113,12 @@ home:
     avatarURL: '/images/avatar.jpeg'
     title: 'Mati Kepa'
     subtitle: 'some random IT dude'
-    typeit: false
+    typeit: true
     social: true
-    disclaimer: ''
+    disclaimer: 'Hello there and welcome to my personal blog page! 🤗'
   posts:
-    enable: true
-    paginate: 6
+    enable: false
+    paginate: 3
 
 ############################
 ## Social links
