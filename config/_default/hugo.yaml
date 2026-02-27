@@ -12,7 +12,7 @@ title: 'kepa.eu.org'
 
 enableEmoji: true
 enableRobotsTXT: true
-enableGitInfo: true
+enableGitInfo: false
 languageCode: 'en'
 languageName: 'English'
 hasCJKLanguage: false
