@@ -2,11 +2,11 @@
 title: 'Your first n8n workflow: weather forecast via Telegram'
 description: 'Learn how to create your first n8n workflow that sends a daily weather forecast via Telegram.'
 date: 2026-02-28
-draft: true
+draft: false
 author: 'Mati'
 tags:
   - n8n
-  - Telegram
+  - Automation
   - Workflow
 categories:
   - DevOps
@@ -23,24 +23,24 @@ a workflow is just an empty canvas.
 
 In this post we will build a small, practical workflow: a scheduled job that fetches the current
 weather from the OpenWeatherMap API and sends you a summary via Telegram. It covers three core
-n8n concepts — triggers, HTTP requests, and third-party integrations — so you will have a solid
+n8n concepts, HTTP requests, and third-party integrations, so you will have a solid
 foundation to create more complex automations on your own.
 
 ---
 
 ## Your first workflow: weather forecast via Telegram
 
-Now that n8n is running, let's build something useful — a workflow that checks the weather
+Now that n8n is running, let's build something useful a workflow that checks the weather
 and sends you a message on Telegram. It takes about five minutes.
 
 ### What you need first
 
-1. **A Telegram bot** — open Telegram, search for `@BotFather`, send `/newbot`, follow the prompts.
+1. **A Telegram bot** : open Telegram, search for `@BotFather`, send `/newbot`, follow the prompts.
    You will get an API token like `123456:ABC-DEF1234`. Save it.
-2. **Your Telegram chat ID** — send any message to your new bot, then open
+2. **Your Telegram chat ID** : send any message to your new bot, then open
    `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates` in a browser.
-   Look for `"chat":{"id":123456789}` — that number is your chat ID.
-3. **An OpenWeatherMap API key** — sign up at [openweathermap.org](https://openweathermap.org/api),
+   Look for `"chat":{"id":123456789}` : that number is your chat ID.
+3. **An OpenWeatherMap API key** : sign up at [openweathermap.org](https://openweathermap.org/api),
    the free tier is enough. You will get an API key from your account dashboard.
 
 ### Build the workflow step by step
@@ -50,9 +50,9 @@ Open n8n at `http://localhost:5678` and click **Add workflow**. Then add nodes o
 #### 1. Schedule Trigger
 
 This starts the workflow automatically. Click the canvas, search for **Schedule Trigger**
-and add it. Set it to run once a day (or every hour — whatever you prefer).
+and add it. Set it to run once a day (or every hour whatever you prefer).
 
-#### 2. HTTP Request — get the weather
+#### 2. HTTP Request : get the weather
 
 Add an **HTTP Request** node and connect it to the trigger. Configure it like this:
 
@@ -65,7 +65,7 @@ Replace `Vienna` with your city and `YOUR_API_KEY` with the key from OpenWeather
 
 Click **Test step** to make sure you get a JSON response with temperature, description, etc.
 
-#### 3. Telegram — send the message
+#### 3. Telegram : send the message
 
 Add a **Telegram** node and connect it to the HTTP Request node.
 
@@ -95,13 +95,25 @@ For the **Text** field, click the expression editor (the little `=` icon) and pa
 Click **Test workflow** to run it once. You should receive a Telegram message within a few seconds.
 If it works, toggle the **Active** switch in the top-right corner so n8n runs it on schedule.
 
-That's it — you now have an automated daily weather report on Telegram,
+That's it! You now have an automated daily weather report on Telegram,
 built entirely on your local machine.
+
+### Import the workflow instead
+
+If you prefer to skip the manual setup, download the ready-made workflow JSON and import it:
+
+1. Download [`weather-forecast-telegram.json`](./weather-forecast-telegram.json).
+2. In n8n, go to **Workflows** → **Import from File** and select the JSON.
+3. Open the **Get Weather** node and replace `YOUR_API_KEY` with your OpenWeatherMap key
+   (you can also change the city from `Vienna` to your own).
+4. Open the **Send Telegram Message** node, set your **Chat ID**, and create
+   a Telegram credential with your bot token.
+5. Click **Test workflow** to verify, then toggle **Active**.
 
 ---
 
 ## Summary
 
 The weather-to-Telegram workflow
-shows how easy it is to wire up APIs visually — from here you can connect anything:
+shows how easy it is to wire up APIs visually from here you can connect anything:
 notifications, databases, webhooks, CI/CD events, and more.
