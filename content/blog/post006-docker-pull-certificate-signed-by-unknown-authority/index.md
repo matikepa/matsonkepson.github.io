@@ -1,9 +1,17 @@
 ---
-title: Fix "docker pull" certificate signed by unknown authority
-summary: Step-by-step solutions to resolve Docker's "certificate signed by unknown authority" error when pulling from a local repository.
+title: 'Fix "docker pull" certificate signed by unknown authority'
+description: 'Step-by-step solutions to resolve Docker''s "certificate signed by unknown authority" error when pulling from a local repository.'
 date: 2024-12-03
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - Docker
+  - TLS
+  - Certificates
+  - Troubleshooting
+categories:
+  - Docker
+  - DevOps
+lightgallery: true
 ---
 
 ## preface

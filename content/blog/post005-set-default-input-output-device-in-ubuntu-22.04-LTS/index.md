@@ -1,9 +1,17 @@
 ---
-title: Set Default Input/Output Device in Ubuntu 22.04 LTS
-summary: Script and autostart setup to automatically set default audio input and output devices in Ubuntu.
+title: 'Set Default Input/Output Device in Ubuntu 22.04 LTS'
+description: 'Script and autostart setup to automatically set default audio input and output devices in Ubuntu.'
 date: 2024-11-29T11:24:30+01:00
-authors:
-  - Mati: author.jpeg
+author: 'Mati'
+tags:
+  - Ubuntu
+  - Linux
+  - Audio
+  - Bash
+  - Automation
+categories:
+  - Linux
+lightgallery: true
 ---
 
 ## preface

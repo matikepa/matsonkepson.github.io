@@ -7,7 +7,7 @@ Welcome to my personal blog repository! This is the source code for my website w
 ## Tech Stack
 
 - **Static Site Generator**: [Hugo](https://gohugo.io/) - Lightning fast, flexible, and user-friendly
-- **Theme**: [Qubt](https://github.com/chrede88/qubt) - Clean and modern theme optimized for technical content
+- **Theme**: [LoveIt](https://github.com/dillonzq/LoveIt) - Clean and modern SEO optimized
 - **Hosting**: [GitHub Pages](https://pages.github.com/) - Fast and secure static site hosting
 - **CI/CD**: [GitHub Actions](https://github.com/features/actions) - Automated workflows for build and deployment
 
