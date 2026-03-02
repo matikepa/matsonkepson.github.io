@@ -47,8 +47,9 @@ jobs:
           fi
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-${ARCH_SUFFIX}.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
+      ## Uncomment if you need Dart Sass for your Hugo build, but you are probably won't...
+      # - name: Install Dart Sass
+      #   run: sudo snap install dart-sass
       - name: Checkout
         uses: actions/checkout@v6
         with:
