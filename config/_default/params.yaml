@@ -112,10 +112,10 @@ home:
     gravatarEmail: ''
     avatarURL: '/images/avatar.jpeg'
     title: 'Mati Kepa'
-    subtitle: 'some random IT dude'
+    subtitle: 'Hello there and welcome to my personal blog page! 🤗'
     typeit: true
     social: true
-    disclaimer: 'Hello there and welcome to my personal blog page! 🤗'
+    disclaimer: 'I am some random IT dude sharing his thoughts mostly on DevOps topics...'
   posts:
     enable: false
     paginate: 3
