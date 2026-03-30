@@ -1,3 +1,68 @@
+function addPostHogTag(apiKey, options = {}) {
+  if (!apiKey || typeof window === 'undefined') return;
+
+  if (!window.posthog) {
+    !(function (t, e) {
+      let o;
+      let n;
+      let p;
+      let r;
+      if (!e.__SV) {
+        window.posthog = e;
+        e._i = [];
+        e.init = function (i, s, a) {
+          function g(target, method) {
+            const parts = method.split('.');
+            if (parts.length === 2) {
+              target = target[parts[0]];
+              method = parts[1];
+            }
+            target[method] = function () {
+              target.push([method].concat(Array.prototype.slice.call(arguments, 0)));
+            };
+          }
+          p = t.createElement('script');
+          p.type = 'text/javascript';
+          p.async = true;
+          p.src = s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js';
+          r = t.getElementsByTagName('script')[0];
+          r.parentNode.insertBefore(p, r);
+          let u = e;
+          if (a !== undefined) {
+            u = e[a] = [];
+          } else {
+            a = 'posthog';
+          }
+          u.people = u.people || [];
+          u.toString = function (withStub) {
+            let str = 'posthog';
+            if (a !== 'posthog') str += '.' + a;
+            if (!withStub) str += ' (stub)';
+            return str;
+          };
+          u.people.toString = function () {
+            return u.toString(1) + '.people (stub)';
+          };
+          o = 'init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep'.split(' ');
+          for (n = 0; n < o.length; n += 1) {
+            g(u, o[n]);
+          }
+          e._i.push([i, s, a]);
+        };
+        e.__SV = 1;
+      }
+    })(document, window.posthog || []);
+  }
+
+  window.posthog.init(apiKey, {
+    api_host: 'https://eu.i.posthog.com',
+    defaults: '2026-01-30',
+    ...options,
+  });
+}
+
+addPostHogTag('phc_VXNcrtI3vEl899qY4aKXoHcLxtt08qxMnWHLfnLjPCf');
+
 /** * Function to add Google Analytics tag dynamically
  */
 
