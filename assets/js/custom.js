@@ -63,7 +63,7 @@ function addPostHogTag(apiKey, options = {}) {
 
 addPostHogTag('phc_VXNcrtI3vEl899qY4aKXoHcLxtt08qxMnWHLfnLjPCf');
 
-/** 
+/**
  * Function to add Google Analytics tag dynamically
  */
 function addGoogleAnalyticsTag(trackingId) {
