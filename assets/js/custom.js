@@ -63,9 +63,9 @@ function addPostHogTag(apiKey, options = {}) {
 
 addPostHogTag('phc_VXNcrtI3vEl899qY4aKXoHcLxtt08qxMnWHLfnLjPCf');
 
-/** * Function to add Google Analytics tag dynamically
+/**
+ * Function to add Google Analytics tag dynamically
  */
-
 function addGoogleAnalyticsTag(trackingId) {
   // Load the gtag.js script asynchronously
   const script = document.createElement('script');
@@ -86,6 +86,24 @@ function addGoogleAnalyticsTag(trackingId) {
 
 // Call the function with your tracking ID
 addGoogleAnalyticsTag('G-81E77KGMGF');
+
+/**
+ * Function to add Cloudflare Web Analytics tag dynamically
+ */
+function addCloudflareAnalyticsTag(token) {
+  if (!token || typeof document === 'undefined') return;
+
+  // Avoid injecting the same script multiple times.
+  if (document.querySelector('script[data-cf-beacon]')) return;
+
+  const script = document.createElement('script');
+  script.defer = true;
+  script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  script.setAttribute('data-cf-beacon', JSON.stringify({ token }));
+  document.head.appendChild(script);
+}
+
+addCloudflareAnalyticsTag('81f78840732445d79901d42f93257926');
 
 
 /**
