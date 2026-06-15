@@ -10,4 +10,4 @@ platformdirs==4.10.0
 pre_commit==4.6.0
 PyYAML==6.0.3
 rcssmin==1.2.2
-virtualenv==21.4.2
+virtualenv==21.5.0
