@@ -16,16 +16,17 @@ REQUIREMENTS = requirements.txt
 # Help target
 .PHONY: help
 help: ## Show available commands
-	@echo "  make all       - Clean, build, format, and run"
+	@echo "  make all       - Clean, build, sync JS, format, and run"
 	@echo "  make new-post  - Create a new blog post"
 	@echo "  make clean     - Clean all (Hugo cache, public, resources, venv)"
 	@echo "  make build     - Setup environment and install dependencies"
+	@echo "  make sync-js   - Copy scripts/gtag.js to assets/js/custom.js (no minify)"
 	@echo "  make run       - Run Hugo server (requires build first)"
 	@echo "  make format    - Run pre-commit hooks"
 
 # Standard targets
 .PHONY: all
-all: clean build format run ## Clean, build, format, and run
+all: clean build sync-js format run ## Clean, build, sync JS, format, and run
 
 # Create new blog post
 .PHONY: new-post
@@ -77,9 +78,21 @@ build: ## Setup virtual environment and install dependencies
 # 	@. $(VENV_ACTIVATE) && python ./scripts/minifier.py || { echo "❌ JavaScript minification failed"; exit 1; }
 # 	@echo "✅ JavaScript minification complete."
 
+# Sync custom JavaScript from source before running Hugo (no minification)
+.PHONY: sync-js
+sync-js: ## Copy scripts/gtag.js to assets/js/custom.js (no minify)
+	@echo "🔄 Syncing scripts/gtag.js to assets/js/custom.js (no minification)..."
+	@if [ ! -f "./scripts/gtag.js" ]; then \
+		echo "❌ Source file scripts/gtag.js not found."; \
+		exit 1; \
+	fi
+	@mkdir -p ./assets/js
+	@cp ./scripts/gtag.js ./assets/js/custom.js
+	@echo "✅ JavaScript sync complete."
+
 # Run: pre-check environment and start Hugo server
 .PHONY: run
-run: ## Run Hugo server (requires environment setup)
+run: sync-js ## Run Hugo server (requires environment setup)
 	@echo "🔍 Checking if environment is ready..."
 	@if [ ! -d "$(VENV_DIR)" ]; then \
 		echo "❌ Virtual environment not found. Please run 'make build' first."; \
