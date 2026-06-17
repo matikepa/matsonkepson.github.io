@@ -24,7 +24,8 @@ function addPostHogTag(apiKey, options = {}) {
           p = t.createElement('script');
           p.type = 'text/javascript';
           p.async = true;
-          p.src = s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js';
+          p.src =
+            s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js';
           r = t.getElementsByTagName('script')[0];
           r.parentNode.insertBefore(p, r);
           let u = e;
@@ -43,7 +44,10 @@ function addPostHogTag(apiKey, options = {}) {
           u.people.toString = function () {
             return u.toString(1) + '.people (stub)';
           };
-          o = 'init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep'.split(' ');
+          o =
+            'init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep'.split(
+              ' '
+            );
           for (n = 0; n < o.length; n += 1) {
             g(u, o[n]);
           }
@@ -63,9 +67,9 @@ function addPostHogTag(apiKey, options = {}) {
 
 addPostHogTag('phc_VXNcrtI3vEl899qY4aKXoHcLxtt08qxMnWHLfnLjPCf');
 
-/**
- * Function to add Google Analytics tag dynamically
+/** * Function to add Google Analytics tag dynamically
  */
+
 function addGoogleAnalyticsTag(trackingId) {
   // Load the gtag.js script asynchronously
   const script = document.createElement('script');
@@ -86,25 +90,6 @@ function addGoogleAnalyticsTag(trackingId) {
 
 // Call the function with your tracking ID
 addGoogleAnalyticsTag('G-81E77KGMGF');
-
-/**
- * Function to add Cloudflare Web Analytics tag dynamically
- */
-function addCloudflareAnalyticsTag(token) {
-  if (!token || typeof document === 'undefined') return;
-
-  // Avoid injecting the same script multiple times.
-  if (document.querySelector('script[data-cf-beacon]')) return;
-
-  const script = document.createElement('script');
-  script.defer = true;
-  script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-  script.setAttribute('data-cf-beacon', JSON.stringify({ token }));
-  document.head.appendChild(script);
-}
-
-addCloudflareAnalyticsTag('81f78840732445d79901d42f93257926');
-
 
 /**
  * Enhanced Cookie Consent Manager
@@ -144,9 +129,8 @@ class CookieConsent {
       .cookie-container {
         position: fixed;
         z-index: 10010;
-        background: var(--global-background-color, #fff);
-        color: var(--global-font-color, #161209);
-        border: 1px solid var(--global-border-color, #f0f0f0);
+        background: var(--cookie-bg, #262626);
+        color: var(--cookie-fg, #e2e8f0);
         border-radius: 0.375rem;
         box-shadow: 0 2px 8px rgba(0,0,0,0.10), 0 1.5px 4px rgba(0,0,0,0.08);
         padding: 1rem 2rem 1rem 1rem;
@@ -178,15 +162,14 @@ class CookieConsent {
         line-height: 1.5;
         margin: 0;
         word-break: break-word;
-        color: var(--global-font-color, #161209);
       }
       .cookie-message a {
-        color: var(--global-link-color, #161209);
+        color: #6366f1;
         text-decoration: underline;
         transition: color 0.2s;
       }
       .cookie-message a:hover {
-        color: var(--global-link-hover-color, #161209);
+        color: #4f46e5;
       }
       .cookie-buttons {
         display: flex;
@@ -203,24 +186,64 @@ class CookieConsent {
         transition: background 0.2s, color 0.2s;
       }
       .cookie-btn {
-        background: var(--global-font-color, #161209);
-        color: var(--global-background-color, #fff);
+        background: #6366f1;
+        color: #fff;
       }
       .cookie-btn:hover {
-        opacity: 0.85;
+        background: #4f46e5;
       }
       .nope-cookie-btn {
         background: transparent;
-        color: var(--global-font-secondary-color, #a9a9b3);
-        border: 1px solid var(--global-border-color, #f0f0f0);
+        color: #64748b;
+        border: 1px solid #64748b;
       }
       .nope-cookie-btn:hover {
-        background: var(--global-border-color, #f0f0f0);
-        color: var(--global-font-color, #161209);
+        background: #e2e8f0;
+        color: #334155;
       }
       .cookie-btn:focus, .nope-cookie-btn:focus {
-        outline: 2px solid var(--global-link-color, #161209);
+        outline: 2px solid #6366f1;
         outline-offset: 2px;
+      }
+      @media (prefers-color-scheme: dark) {
+        .cookie-container {
+          --cookie-bg: #f5f5f5;
+          --cookie-fg: #334155;
+        }
+        .cookie-btn {
+          background: #6366f1;
+          color: #fff;
+        }
+        .cookie-btn:hover {
+          background: #4f46e5;
+        }
+        .nope-cookie-btn {
+          color: #475569;
+          border-color: #cbd5e1;
+        }
+        .nope-cookie-btn:hover {
+          background: #f1f5f9;
+          color: #334155;
+        }
+      }
+      .dark .cookie-container {
+        --cookie-bg: #f5f5f5;
+        --cookie-fg: #334155;
+      }
+      .dark .cookie-btn {
+        background: #6366f1;
+        color: #fff;
+      }
+      .dark .cookie-btn:hover {
+        background: #4f46e5;
+      }
+      .dark .nope-cookie-btn {
+        color: #475569;
+        border-color: #cbd5e1;
+      }
+      .dark .nope-cookie-btn:hover {
+        background: #f1f5f9;
+        color: #334155;
       }
     `;
 
