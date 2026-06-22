@@ -19,7 +19,7 @@ jobs:
           type -p curl >/dev/null || (sudo apt update && sudo apt install curl wget -y)
           sudo apt update
           sudo apt install gh jq -y
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Switch to analytics branch
         run: |
           git fetch origin
