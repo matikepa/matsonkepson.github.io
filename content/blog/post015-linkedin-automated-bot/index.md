@@ -1,7 +1,7 @@
 ---
 title: 'Build a simple LinkedIn bot for random post ideas'
 description: 'Create a lightweight LinkedIn posting bot using Python and the official API, with Copilot CLI generated content examples.'
-date: 2026-06-18
+date: 2026-07-01
 draft: false
 author: 'Mati'
 tags:
