@@ -1,7 +1,7 @@
 cfgv==3.5.0
 filelock==3.29.4
 distlib==0.4.3
-hugo==0.153.0
+hugo==0.163.3
 identify==2.6.19
 jsmin==3.0.1
 libsass==0.23.0
@@ -10,4 +10,4 @@ platformdirs==4.10.0
 pre_commit==4.6.0
 PyYAML==6.0.3
 rcssmin==1.2.2
-virtualenv==21.5.0
+virtualenv==21.5.1

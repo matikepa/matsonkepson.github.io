@@ -4,7 +4,7 @@
 
 main:
   - identifier: posts
-    name: Blog
+    name: Tech Blog
     url: /blog/
     title: 'Blog Posts'
     weight: 10
