@@ -80,8 +80,11 @@ function addGoogleAnalyticsTag(trackingId) {
   // Initialize the dataLayer and gtag function
   window.dataLayer = window.dataLayer || [];
   function gtag() {
-    dataLayer.push(arguments);
+    window.dataLayer.push(arguments);
   }
+  // Expose globally so other scripts (e.g. CookieConsent) can detect
+  // that GA is already loaded and avoid injecting the tag twice.
+  window.gtag = gtag;
 
   // Initialize gtag
   gtag('js', new Date());

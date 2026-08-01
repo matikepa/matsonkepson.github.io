@@ -113,7 +113,7 @@ run: sync-js ## Run Hugo server (requires environment setup)
 	}
 	@echo "✅ Environment ready."
 	@echo "🚀 Starting full Hugo build..."
-	@$(VENV_HUGO) server --disableFastRender
+	@$(VENV_HUGO) server --disableFastRender --environment production --gc --cleanDestinationDir
 
 # Format: install and run pre-commit hooks
 .PHONY: format
