@@ -116,8 +116,9 @@ def obfuscate_js(js_code):
     for match in param_pattern.finditer(js_code):
         params = match.group(1).split(",")
         for p in params:
-            p = p.strip()
-            if p and p not in reserved:
+            # Strip default values so "options = {}" is captured as "options"
+            p = p.split("=", 1)[0].strip()
+            if p and re.fullmatch(r"[a-zA-Z_$][a-zA-Z0-9_$]*", p) and p not in reserved:
                 names.add(p)
 
     # Build obfuscation map

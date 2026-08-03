@@ -195,8 +195,11 @@ page:
 ## Analytics
 ############################
 
+# GA is loaded via assets/js/custom.js (together with PostHog and cookie consent).
+# The theme injects its own gtag snippet whenever google.id is set, so keep it
+# empty here to avoid loading the same GA tag twice (double-counted pageviews).
 analytics:
-  enable: true
+  enable: false
   google:
     id: 'G-81E77KGMGF'
     anonymizeIP: false
