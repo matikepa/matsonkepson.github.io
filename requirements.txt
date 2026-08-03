@@ -1,5 +1,5 @@
 cfgv==3.5.0
-filelock==3.32.0
+filelock==3.32.2
 distlib==0.4.3
 hugo==0.153.0
 identify==2.6.19
