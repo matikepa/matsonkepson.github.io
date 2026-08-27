@@ -11,6 +11,17 @@ repos:
         args: ['--allow-missing-credentials']
       - id: detect-private-key
 
+  # gitleaks secret scanning. Uses the gitleaks binary installed into the
+  # uv-managed venv by `nogoo9-gitleaks` (see requirements.txt), so it runs
+  # through `make format` which activates the venv. Scans staged changes only.
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: gitleaks (staged)
+        entry: gitleaks git --pre-commit --redact --staged --verbose --config=.gitleaks.toml
+        language: system
+        pass_filenames: false
+
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
     hooks:

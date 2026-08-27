@@ -13,7 +13,7 @@ title: 'kepa.eu.org'
 enableEmoji: true
 enableRobotsTXT: true
 enableGitInfo: false
-languageCode: 'en'
+locale: 'en'
 languageName: 'English'
 hasCJKLanguage: false
 timeZone: Etc/UTC

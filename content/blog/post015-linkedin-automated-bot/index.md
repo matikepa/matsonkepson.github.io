@@ -17,6 +17,7 @@ lightgallery: true
 ## Preface
 
 ---
+
 In modern social media, consistency is key. But posting regularly can be a chore.
 Many people posting on social media failing to deliver anything but noise. So let me show you how to do it right.
 

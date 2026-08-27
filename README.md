@@ -38,6 +38,23 @@ To run this blog locally:
 - New posts can be created using `make new-post`
 - All content is written in Markdown and stored in the `content/` directory
 - Run `make format` to validate your new MD file
+- Run `make gitleaks` to scan the full git history for leaked secrets
+
+## Secret Scanning
+
+[Gitleaks](https://github.com/gitleaks/gitleaks) is installed into the uv-managed
+virtual environment via the [`nogoo9-gitleaks`](https://pypi.org/project/nogoo9-gitleaks/)
+Python wrapper (see [requirements.txt](requirements.txt)) — no separate binary
+install is needed.
+
+- `make format` runs a **staged-only** gitleaks check via pre-commit, blocking
+  any commit that introduces a new secret.
+- `make gitleaks` runs a **full-history** scan, using
+  [`.gitleaks.toml`](.gitleaks.toml) for rules/allowlists and
+  [`.gitleaks-baseline.json`](.gitleaks-baseline.json) to suppress already-known
+  historical findings.
+- After rotating or removing a known leak, regenerate the baseline with
+  `make gitleaks-baseline` and commit the updated file.
 
 ## License
 
