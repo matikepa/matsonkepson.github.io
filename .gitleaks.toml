@@ -1,0 +1,18 @@
+title = "gitleaks config for matsonkepson.github.io"
+
+# Extend the built-in default ruleset (150+ rules).
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Allow generated/vendored paths so staged scans never trip on build output"
+
+paths = [
+  '''public/.*''',
+  '''resources/.*''',
+  '''\.venv/.*''',
+  '''venv/.*''',
+  '''\.ruff_cache/.*''',
+  '''node_modules/.*''',
+  '''.hugo_build\.lock''',
+]

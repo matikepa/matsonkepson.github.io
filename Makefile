@@ -23,10 +23,11 @@ help: ## Show available commands
 	@echo "  make sync-js   - Copy scripts/gtag.js to assets/js/custom.js (no minify)"
 	@echo "  make run       - Run Hugo server (requires build first)"
 	@echo "  make format    - Run pre-commit hooks"
+	@echo "  make gitleaks  - Scan full git history for secrets (uses baseline)"
 
 # Standard targets
 .PHONY: all
-all: clean build sync-js format run ## Clean, build, sync JS, format, and run
+all: clean build sync-js format gitleaks run
 
 # Create new blog post
 .PHONY: new-post
@@ -128,3 +129,36 @@ format: ## Run pre-commit hooks (install if needed)
 	@echo "🚀 Running pre-commit hooks on all files..."
 	@. $(VENV_ACTIVATE) && pre-commit run --all-files --verbose
 	@echo "✅ Pre-commit formatting complete."
+
+# Gitleaks: scan full git history for leaked secrets.
+# Uses .gitleaks.toml for rules/allowlists and .gitleaks-baseline.json to
+# suppress already-known historical findings (e.g. public publishable keys).
+GITLEAKS_CONFIG = .gitleaks.toml
+GITLEAKS_BASELINE = .gitleaks-baseline.json
+
+.PHONY: gitleaks
+gitleaks: ## Scan full git history for secrets (uses baseline)
+	@echo "🔍 Checking if environment is ready..."
+	@if [ ! -d "$(VENV_DIR)" ]; then \
+		echo "❌ Virtual environment not found. Please run 'make build' first."; \
+		exit 1; \
+	fi
+	@if ! bash -c 'source $(VENV_ACTIVATE) && command -v gitleaks > /dev/null 2>&1'; then \
+		echo "❌ gitleaks not found in venv. Please run 'make build' first."; \
+		exit 1; \
+	fi
+	@echo "🛡️  Running gitleaks full-history scan..."
+	@. $(VENV_ACTIVATE) && gitleaks git --redact --verbose \
+		--config=$(GITLEAKS_CONFIG) \
+		--baseline-path=$(GITLEAKS_BASELINE) \
+		|| { echo "❌ gitleaks found new leaks (not in baseline). Rotate the secret and re-run."; exit 1; }
+	@echo "✅ gitleaks scan passed: no new leaks found."
+
+.PHONY: gitleaks-baseline
+gitleaks-baseline: ## Regenerate the gitleaks baseline (run after rotating/removing known leaks)
+	@echo "🔄 Regenerating gitleaks baseline..."
+	@. $(VENV_ACTIVATE) && gitleaks git --redact \
+		--config=$(GITLEAKS_CONFIG) \
+		--report-format json \
+		--report-path $(GITLEAKS_BASELINE)
+	@echo "✅ Baseline written to $(GITLEAKS_BASELINE). Commit it to suppress these findings."
