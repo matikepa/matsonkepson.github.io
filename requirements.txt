@@ -1,7 +1,7 @@
 cfgv==3.5.0
 filelock==3.32.3
 distlib==0.4.3
-hugo==0.163.3
+hugo==0.165.0
 nogoo9-gitleaks==8.30.1.post3
 identify==2.6.19
 nodeenv==1.10.0
