@@ -23,7 +23,7 @@ Welcome to my personal blog repository! This is the source code for my website w
 
 ## Local Development
 
-[Installing Hugo](https://gohugo.io/installation/) is optional since Hugo is installed from [requirements.txt](requirements.txt) inside the Python virtual environment.
+[Installing Hugo](https://gohugo.io/installation/) is optional — `make build` installs it from [requirements.txt](requirements.txt) (`hugo==…`) into the Python virtual environment. GitHub Actions reads that same pin so local and CI stay on one version.
 
 To run this blog locally:
 

@@ -14,7 +14,7 @@ enableEmoji: true
 enableRobotsTXT: true
 enableGitInfo: false
 locale: 'en'
-languageName: 'English'
+label: 'English'
 hasCJKLanguage: false
 timeZone: Etc/UTC
 

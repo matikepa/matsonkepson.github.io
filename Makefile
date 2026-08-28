@@ -9,6 +9,7 @@ PUBLIC_DIR = ./public
 RESOURCES_DIR = ./resources
 HUGO_LOCK = .hugo_build.lock
 REQUIREMENTS = requirements.txt
+HUGO_VERSION := $(shell awk -F '==|#' '/^hugo==/ {print $2}' $(REQUIREMENTS))
 
 # Default target
 .DEFAULT_GOAL := help
@@ -20,7 +21,7 @@ help: ## Show available commands
 	@echo "  make new-post  - Create a new blog post"
 	@echo "  make clean     - Clean all (Hugo cache, public, resources, venv)"
 	@echo "  make build     - Setup environment and install dependencies"
-	@echo "  make sync-js   - Copy scripts/gtag.js to assets/js/custom.js (no minify)"
+	@echo "  make sync-js   - Copy scripts/gtag.js to assets/js/custom.js"
 	@echo "  make run       - Run Hugo server (requires build first)"
 	@echo "  make format    - Run pre-commit hooks"
 	@echo "  make gitleaks  - Scan full git history for secrets (uses baseline)"
@@ -64,7 +65,11 @@ build: ## Setup virtual environment and install dependencies
 	@echo "🐍 Creating Python virtual environment..."
 	@$(PYTHON) -m venv $(VENV_DIR) || { echo "❌ Failed to create virtual environment"; exit 1; }
 	@echo "✅ Virtual environment created successfully."
-	@echo "📦 Upgrading pip and installing dependencies..."
+	@if [ -z "$(HUGO_VERSION)" ]; then \
+		echo "❌ Pin Hugo in $(REQUIREMENTS) as hugo==<version> (used by local install and CI)."; \
+		exit 1; \
+	fi
+	@echo "📦 Upgrading pip and installing dependencies (Hugo $(HUGO_VERSION))..."
 	@. $(VENV_ACTIVATE) && \
 		if command -v uv > /dev/null 2>&1; then \
 			uv pip install --upgrade pip && \
@@ -75,14 +80,11 @@ build: ## Setup virtual environment and install dependencies
 		fi && \
 		echo "✅ Build complete. Environment is ready." || \
 		{ echo "❌ Failed to install dependencies"; exit 1; }
-# 	@echo "🔍 JavaScript minification..."
-# 	@. $(VENV_ACTIVATE) && python ./scripts/minifier.py || { echo "❌ JavaScript minification failed"; exit 1; }
-# 	@echo "✅ JavaScript minification complete."
 
-# Sync custom JavaScript from source before running Hugo (no minification)
+# Sync custom JavaScript from source before running Hugo
 .PHONY: sync-js
-sync-js: ## Copy scripts/gtag.js to assets/js/custom.js (no minify)
-	@echo "🔄 Syncing scripts/gtag.js to assets/js/custom.js (no minification)..."
+sync-js: ## Copy scripts/gtag.js to assets/js/custom.js
+	@echo "🔄 Syncing scripts/gtag.js to assets/js/custom.js..."
 	@if [ ! -f "./scripts/gtag.js" ]; then \
 		echo "❌ Source file scripts/gtag.js not found."; \
 		exit 1; \
