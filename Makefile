@@ -9,7 +9,7 @@ PUBLIC_DIR = ./public
 RESOURCES_DIR = ./resources
 HUGO_LOCK = .hugo_build.lock
 REQUIREMENTS = requirements.txt
-HUGO_VERSION := $(shell awk -F '[=\# ]+' '/^hugo==/ { print $2; exit }' $(REQUIREMENTS) | tr -d '\r')
+HUGO_VERSION := $(shell awk -F '==|#' '/^hugo==/ {print $2}' $(REQUIREMENTS))
 
 # Default target
 .DEFAULT_GOAL := help

@@ -40,7 +40,7 @@ jobs:
       - name: Read Hugo version
         id: hugo
         run: |
-          version=$(awk -F '[=\# ]+' '/^hugo==/ { print $2; exit }' requirements.txt | tr -d '\r')
+          version=$(awk -F '==|#' '/^hugo==/ {print $2}' requirements.txt)
           if [ -z "$version" ]; then
             echo "hugo== pin not found in requirements.txt" >&2
             exit 1
