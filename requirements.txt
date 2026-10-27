@@ -1,6 +1,6 @@
 cfgv==3.5.0
 filelock==4.2.0
-distlib==0.4.3
+distlib==0.4.4
 hugo==0.163.3
 identify==2.6.19
 nodeenv==1.11.0
