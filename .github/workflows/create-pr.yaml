@@ -16,7 +16,7 @@ jobs:
           git reset --hard develop
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v8.1.1
+        uses: peter-evans/create-pull-request@v8.1.3
         with:
           token: ${{ secrets.PR_TOKEN }}
           commit-message: Update main
